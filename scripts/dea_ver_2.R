@@ -30,7 +30,7 @@ populacao <- sidrar::get_sidra(
   dplyr::select(municipio_codigo, valor)
 
 
-consolidado <-  base %>%
+consolidado_01 <-  base %>%
   dplyr::full_join(populacao,
                    by = c('id_municipio' = 'municipio_codigo')) %>%
   dplyr::filter(valor >= 75000 & valor <= 150000) %>%
@@ -59,16 +59,15 @@ consolidado <-  base %>%
                 urbanismo_saneamento_transporte,
                 desporto_e_lazer,
                 educacao_e_cultura,
-                ods_1,
-                ods_2,
+
                 ods_3,
                 ods_4,
-                ods_6,
-                ods_10) %>%
+                ods_6) %>%
   tidyr::drop_na()
 
 
-
+writexl::write_xlsx(consolidado_01, './dados/consolidado_01.xlsx')
+writexl::write_xlsx(consolidado_02, './dados/consolidado_02.xlsx')
 
 # TRATAMENTO E MODELAGEM --------------------------------------------------
 referencia <- consolidado %>%
