@@ -3,8 +3,6 @@ library(magrittr)
 library(ggplot2)
 
 
-
-
 # IMPORTAÇÃO E ARRUMAÇÃO: -------------------------------------------------
 base <- readxl::read_xlsx(path = './dados/240828_dea.xlsx',
                             sheet = 2,

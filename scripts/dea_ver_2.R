@@ -3,8 +3,6 @@ library(magrittr)
 library(ggplot2)
 
 
-
-
 # IMPORTAÇÃO E ARRUMAÇÃO: -------------------------------------------------
 base <- readxl::read_xlsx(path = './dados/240828_dea.xlsx',
                           sheet = 2,
@@ -68,6 +66,7 @@ consolidado <-  base %>%
 
 writexl::write_xlsx(consolidado_01, './dados/consolidado_01.xlsx')
 writexl::write_xlsx(consolidado_02, './dados/consolidado_02.xlsx')
+
 
 # TRATAMENTO E MODELAGEM --------------------------------------------------
 referencia <- consolidado %>%
