@@ -1,0 +1,34 @@
+---
+title: '**Título**'
+subtitle: '**Subtítulo**'
+author: '**Autores:** [Autor 01]() | [Autor 02]()'
+date: '**Última Atualização:** `r format(Sys.Date(), "%d-%m-%Y")`'
+output:
+  rmdformats::downcute:
+    self_contained: true
+    default_style: 'light'
+    downcute_theme: 'default'
+---
+
+
+# INTRODUÇÃO
+
+
+
+
+Lorem ipsum!
+
+
+# ANÁLISE ENVOLTÓRIA DE DADOS
+
+
+
+
+Lorem ipsum!
+
+# RESULTADOS PRELIMINARES
+
+
+
+
+Lorem ipsum!
