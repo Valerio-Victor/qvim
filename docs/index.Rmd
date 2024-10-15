@@ -1,0 +1,283 @@
+---
+title: '**Eficiência Orçamentária de Municípios Brasileiros**'
+subtitle: '**Alcance dos Objetivos de Desenvolvimento Sustentável**'
+author: '**Autores:** <br>[Moisés Vassallo](http://lattes.cnpq.br/8821972747380756) <br>[Rafael Miranda](http://lattes.cnpq.br/4478766390160865) <br>[Victor Valerio](http://lattes.cnpq.br/1989464933096922) <br>[André Medeiros](http://lattes.cnpq.br/4069096016693580) <br>[José Arnaldo Montevechi](http://lattes.cnpq.br/2169751971927037)'
+date: '**Última Atualização:** <br>`r format(Sys.Date(), "%d-%m-%Y")`'
+output:
+  rmdformats::downcute:
+    self_contained: true
+    default_style: 'light'
+    downcute_theme: 'default'
+---
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# PACOTES: -----------------------------------------------------------------
+library(magrittr)
+library(ggplot2)
+library(plotly)
+library(crosstalk)
+library(htmltools)
+library(DT)
+
+
+# CONFIGURAÇÕES: -----------------------------------------------------------
+plotly_layout <- c('hoverClosestCartesian',
+                   'hoverCompareCartesian',
+                   'resetScale2d',
+                   'zoom2d',
+                   'sendDataToCloud',
+                   'editInChartStudio',
+                   'pan2d',
+                   'select2d',
+                   'lasso2d',
+                   'drawclosedpath',
+                   'drawopenpath',
+                   'zoomIn2d',
+                   'zoomOut2d',
+                   'drawcircle',
+                   'drawrect',
+                   'drawline')
+
+
+roxo_e <- '#440154FF'
+roxo_c <- '#414487FF'
+azul <- '#2A788EFF'
+verde_e <- '#22A884FF'
+verde_c <- '#7AD151FF'
+amarelo <- '#FDE725FF'
+
+
+# IMPORTAÇÃO: --------------------------------------------------------------
+base <- readxl::read_xlsx(path = '../dados/20240926dea_final.xlsx',
+                          sheet = 1) %>%
+  janitor::clean_names() %>% 
+  dplyr::mutate(id_municipio = as.numeric(id_municipio))
+
+
+regioes <- geobr::read_region(year = 2020, 
+                              showProgress = FALSE)
+
+
+estados <- geobr::read_state(year = 2020, 
+                             showProgress = FALSE)
+
+
+municipios <- geobr::read_municipal_seat(year = 2010, 
+                                         showProgress = FALSE)
+
+
+# ARRUMAÇÃO: ---------------------------------------------------------------
+mapa_total <- municipios %>% 
+  dplyr::left_join(base, by = c('code_muni' = 'id_municipio')) %>% 
+  tidyr::drop_na() %>% 
+  dplyr::select(code_muni,
+                name_muni,
+                abbrev_state,
+                name_region, 
+                geom)
+
+
+mapa_insumos <- municipios %>% 
+  dplyr::left_join(base, by = c('code_muni' = 'id_municipio')) %>% 
+  tidyr::drop_na() %>% 
+  dplyr::select(code_muni,
+                name_muni,
+                abbrev_state,
+                name_region,
+                !dplyr::contains('ODS'),
+                geom) %>% 
+  dplyr::select(name_region, 
+                name_muni,
+                dplyr::contains('per_capta')) %>% 
+  tidyr::pivot_longer(cols = !c(name_region,
+                                name_muni, geom),
+                      names_to = 'insumo',
+                      values_to = 'valor') %>% 
+  dplyr::arrange(name_region, insumo, desc(valor)) %>% 
+  dplyr::mutate(insumo = dplyr::case_when(
+    insumo == 'educacao_cultura_per_capta' ~ 'Educação e Cultura',
+    insumo == 'saneamento_gestao_ambiental_per_capta' ~ 'Saneamento e Gestão Ambiental',
+    insumo == 'saude_desporto_lazer_per_capta' ~ 'Saúde, Desporto e Lazer',
+    insumo == 'urbanismo_habitacao_transporte_seguranca_agricultura_per_capta' ~ 'Urbanismo, Transporte e Segurança',
+    insumo == 'outros_per_capta' ~ 'Outros'))
+
+```
+
+
+
+# INTRODUÇÃO
+
+
+Lorem ipsum!
+
+
+# ANÁLISE ENVOLTÓRIA DE DADOS
+
+
+$$ \min{} \theta_0 = \sum_{i = 1}^{r} v_i \ x_{i0}$$
+$$Sujeito \ à:$$
+$$ \sum_{j = 1}^{s} u_j \ y_{j0} = 1 $$
+$$(\sum_{i = 1}^{r} v_i \ x_{ik}) - (\sum_{j = 1}^{s} u_j \ y_{jk}) = 0, \forall  \ k$$
+$$v_i, \ u_j \geq 0, \forall \ i, \ j$$
+$$$$
+
+Lorem ipsum!
+
+# RESULTADOS PRELIMINARES
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+g1_amostra <- as.data.frame(mapa_total) %>% 
+  dplyr::select(name_region) %>% 
+  table() %>% 
+  as.data.frame() %>% 
+  dplyr::rename('regiao' = name_region,
+                'municipios' = Freq) %>% 
+  dplyr::mutate(regiao = as.character(regiao),
+                municipios = as.numeric(municipios)) %>% 
+  dplyr::arrange(desc(municipios)) %>% 
+  dplyr::mutate(regiao = forcats::fct_reorder(regiao, municipios)) %>% 
+  ggplot() + 
+  geom_col(aes(x = municipios, y = regiao, group = 1, 
+               text = paste0('Municípios: ', municipios,
+                             '<br>Região: ', regiao)),
+           fill = roxo_e) + 
+  labs(x = 'Quantidade de Municípios',
+       y = '') + 
+  theme_classic()
+
+g1_amostra <- plotly::ggplotly(g1_amostra, tooltip = 'text') %>% 
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+
+g2_amostra <- 
+  ggplot() + 
+  geom_sf(data = estados, 
+          aes(),
+          fill = 'white') + 
+  geom_sf(data = mapa_total, 
+          aes(group = 1,
+              text = paste0('Município: ', name_muni,
+                            '<br>Estado: ', abbrev_state,
+                            '<br>Região: ', name_region)),
+          fill = 'white',
+          size = ifelse(mapa_total$name_muni == 'Itajubá', 2, 0.75),
+          color = ifelse(mapa_total$name_muni == 'Itajubá', verde_c, roxo_e)) +
+  theme_minimal() + 
+  theme(axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank()) 
+
+g2_amostra <- plotly::ggplotly(g2_amostra, tooltip = 'text') %>% 
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+
+bscols(g1_amostra, 
+       g2_amostra,
+       widths = c(6,6))
+
+```
+
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+
+## Análise dos Insumos
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+mapa_insumos_key <- SharedData$new(mapa_insumos, key = ~name_muni)
+
+g1_insumos <- mapa_insumos_key %>% 
+  ggplot() + 
+  geom_jitter(aes(x = valor, y = insumo, group = 1,
+                  text = paste0('Município: ', name_muni,
+                                '<br>Região: ', name_region,
+                                '<br>Insumo: ', insumo,
+                                '<br>Valor: ', scales::number(valor,
+                                                              accuracy = 0.01,
+                                                              decimal.mark = ',',
+                                                              big.mark = '.'), 
+                                ' R$/Habitante')),
+              size = ifelse(mapa_insumos$name_muni == 'Itajubá', 2, 0.75),
+              color = ifelse(mapa_insumos$name_muni == 'Itajubá', verde_c, roxo_e)) +
+  scale_x_continuous(labels = scales::number_format(big.mark = '.')) + 
+  labs(x = 'R$/Habitante',
+       y = '') + 
+  theme_classic()
+
+g1_insumos <- plotly::ggplotly(g1_insumos, tooltip = 'text') %>%
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+tb1_insumos <- datatable(mapa_insumos_key)
+
+g1_insumos
+tb1_insumos
+```
+
+
+## Análise dos Produtos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
