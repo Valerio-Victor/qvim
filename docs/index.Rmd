@@ -189,12 +189,18 @@ Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 
 ## Análise dos Insumos
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 mapa_insumos_key <- SharedData$new(mapa_insumos, key = ~name_muni)
 
 g1_insumos <- mapa_insumos_key %>% 
   ggplot() + 
-  geom_jitter(aes(x = valor, y = insumo, group = 1,
+  geom_jitter(aes(x = valor, y = insumo, color = name_region, group = 1,
                   text = paste0('Município: ', name_muni,
                                 '<br>Região: ', name_region,
                                 '<br>Insumo: ', insumo,
@@ -203,17 +209,31 @@ g1_insumos <- mapa_insumos_key %>%
                                                               decimal.mark = ',',
                                                               big.mark = '.'), 
                                 ' R$/Habitante')),
-              size = ifelse(mapa_insumos$name_muni == 'Itajubá', 2, 0.75),
-              color = ifelse(mapa_insumos$name_muni == 'Itajubá', verde_c, roxo_e)) +
-  scale_x_continuous(labels = scales::number_format(big.mark = '.')) + 
+              size = ifelse(mapa_insumos$name_muni == 'Itajubá', 2, 0.75)) +
+  scale_x_continuous(labels = scales::number_format(big.mark = '.')) +
+  scale_color_viridis_d() + 
   labs(x = 'R$/Habitante',
-       y = '') + 
-  theme_classic()
+       y = '',
+       color = '') + 
+  theme_classic() + 
+  theme(legend.position = 'bottom')
 
 g1_insumos <- plotly::ggplotly(g1_insumos, tooltip = 'text') %>%
+  plotly::layout(legend = list(orientation = 'h',
+                               x = 0, 
+                               y = -0.1, #####################
+                               xanchor='left',
+                               yanchor='bottom')) %>%
   plotly::config(modeBarButtonsToRemove = plotly_layout)
 
-tb1_insumos <- datatable(mapa_insumos_key)
+tb1_insumos <- datatable(mapa_insumos_key,
+                         rownames = FALSE,
+                         colnames = c('Região',
+                                      'Município',
+                                      'teste',
+                                      'Insumo', 
+                                      'Valor'))
+
 
 g1_insumos
 tb1_insumos
