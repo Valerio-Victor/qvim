@@ -17,7 +17,7 @@ library(magrittr)
 library(ggplot2)
 library(plotly)
 library(crosstalk)
-library(htmltools)
+# library(htmltools)
 library(DT)
 
 
@@ -86,21 +86,22 @@ mapa_insumos <- municipios %>%
                 abbrev_state,
                 name_region,
                 !dplyr::contains('ODS'),
-                geom) %>% 
+                !geom) %>%
+  as.data.frame() %>% 
   dplyr::select(name_region, 
                 name_muni,
                 dplyr::contains('per_capta')) %>% 
   tidyr::pivot_longer(cols = !c(name_region,
-                                name_muni, geom),
+                                name_muni),
                       names_to = 'insumo',
                       values_to = 'valor') %>% 
-  dplyr::arrange(name_region, insumo, desc(valor)) %>% 
+  dplyr::arrange(name_muni, desc(valor)) %>% 
   dplyr::mutate(insumo = dplyr::case_when(
     insumo == 'educacao_cultura_per_capta' ~ 'Educação e Cultura',
     insumo == 'saneamento_gestao_ambiental_per_capta' ~ 'Saneamento e Gestão Ambiental',
     insumo == 'saude_desporto_lazer_per_capta' ~ 'Saúde, Desporto e Lazer',
     insumo == 'urbanismo_habitacao_transporte_seguranca_agricultura_per_capta' ~ 'Urbanismo, Transporte e Segurança',
-    insumo == 'outros_per_capta' ~ 'Outros'))
+    insumo == 'outros_per_capta' ~ 'Outros')) 
 
 ```
 
@@ -130,30 +131,7 @@ Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-g1_amostra <- as.data.frame(mapa_total) %>% 
-  dplyr::select(name_region) %>% 
-  table() %>% 
-  as.data.frame() %>% 
-  dplyr::rename('regiao' = name_region,
-                'municipios' = Freq) %>% 
-  dplyr::mutate(regiao = as.character(regiao),
-                municipios = as.numeric(municipios)) %>% 
-  dplyr::arrange(desc(municipios)) %>% 
-  dplyr::mutate(regiao = forcats::fct_reorder(regiao, municipios)) %>% 
-  ggplot() + 
-  geom_col(aes(x = municipios, y = regiao, group = 1, 
-               text = paste0('Municípios: ', municipios,
-                             '<br>Região: ', regiao)),
-           fill = roxo_e) + 
-  labs(x = 'Quantidade de Municípios',
-       y = '') + 
-  theme_classic()
-
-g1_amostra <- plotly::ggplotly(g1_amostra, tooltip = 'text') %>% 
-  plotly::config(modeBarButtonsToRemove = plotly_layout)
-
-
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 g2_amostra <- 
   ggplot() + 
   geom_sf(data = estados, 
@@ -176,12 +154,39 @@ g2_amostra <-
 g2_amostra <- plotly::ggplotly(g2_amostra, tooltip = 'text') %>% 
   plotly::config(modeBarButtonsToRemove = plotly_layout)
 
-
-bscols(g1_amostra, 
-       g2_amostra,
-       widths = c(6,6))
-
+g2_amostra 
 ```
+
+```{r echo=FALSE, fig.align='center', fig.height=3, message=FALSE, warning=FALSE}
+g1_amostra <- as.data.frame(mapa_total) %>% 
+  dplyr::select(name_region) %>% 
+  table() %>% 
+  as.data.frame() %>% 
+  dplyr::rename('regiao' = name_region,
+                'municipios' = Freq) %>% 
+  dplyr::mutate(regiao = as.character(regiao),
+                municipios = as.numeric(municipios)) %>% 
+  dplyr::arrange(desc(municipios)) %>% 
+  dplyr::mutate(regiao = forcats::fct_reorder(regiao, municipios)) %>% 
+  ggplot() + 
+  geom_col(aes(x = municipios, y = regiao, 
+               group = 1, 
+               text = paste0('Municípios: ', municipios,
+                             '<br>Região: ', regiao)),
+           fill = roxo_e,
+           width = 0.5) + 
+  labs(x = 'Quantidade de Municípios',
+       y = '') + 
+  theme_classic()
+
+g1_amostra <- plotly::ggplotly(g1_amostra, tooltip = 'text') %>% 
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+g1_amostra
+```
+
+
+
 
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
@@ -195,11 +200,11 @@ Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-mapa_insumos_key <- SharedData$new(mapa_insumos, key = ~name_muni)
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+mapa_insumos_key <- SharedData$new(mapa_insumos)
 
-g1_insumos <- mapa_insumos_key %>% 
-  ggplot() + 
+g1_disp_insumos <- mapa_insumos_key %>%
+  ggplot() +
   geom_jitter(aes(x = valor, y = insumo, color = name_region, group = 1,
                   text = paste0('Município: ', name_muni,
                                 '<br>Região: ', name_region,
@@ -207,35 +212,64 @@ g1_insumos <- mapa_insumos_key %>%
                                 '<br>Valor: ', scales::number(valor,
                                                               accuracy = 0.01,
                                                               decimal.mark = ',',
-                                                              big.mark = '.'), 
+                                                              big.mark = '.'),
                                 ' R$/Habitante')),
               size = ifelse(mapa_insumos$name_muni == 'Itajubá', 2, 0.75)) +
   scale_x_continuous(labels = scales::number_format(big.mark = '.')) +
-  scale_color_viridis_d() + 
+  scale_color_viridis_d() +
   labs(x = 'R$/Habitante',
        y = '',
-       color = '') + 
-  theme_classic() + 
+       color = '') +
+  theme_classic() +
   theme(legend.position = 'bottom')
 
-g1_insumos <- plotly::ggplotly(g1_insumos, tooltip = 'text') %>%
+g1_disp_insumos <- plotly::ggplotly(g1_disp_insumos, tooltip = 'text') %>%
   plotly::layout(legend = list(orientation = 'h',
-                               x = 0, 
-                               y = -0.1, #####################
+                               x = 0,
+                               y = -0.25, 
                                xanchor='left',
                                yanchor='bottom')) %>%
   plotly::config(modeBarButtonsToRemove = plotly_layout)
 
+                         
+                         
+bscols(widths = c(6, 6),
+       filter_checkbox('regiao', 'Região:', mapa_insumos_key, ~name_region, inline = FALSE),
+       list(
+       filter_select('municipio', 
+                     'Município:', 
+                     mapa_insumos_key, 
+                     ~name_muni, 
+                     multiple = TRUE),
+       filter_slider('valor', 
+                     'Valor:', 
+                     mapa_insumos_key, 
+                     ~valor, 
+                     min = 0, 
+                     max = 70000,
+                     step = 10000)))
+
+g1_disp_insumos
+```
+
+                         
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
 tb1_insumos <- datatable(mapa_insumos_key,
                          rownames = FALSE,
+                         extensions = c('Responsive'),
+                         options = list(
+                           dom = 'tip',
+                           language = list(url = 'https://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json')),
                          colnames = c('Região',
                                       'Município',
-                                      'teste',
-                                      'Insumo', 
-                                      'Valor'))
+                                      'Insumo',
+                                      'Valor')) %>% 
+  formatCurrency(4, 
+                 currency = 'R$ ',
+                 mark = '.',
+                 dec.mark = ',',
+                 digits = 2)
 
-
-g1_insumos
 tb1_insumos
 ```
 
