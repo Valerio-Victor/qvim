@@ -4,10 +4,8 @@ subtitle: '**Alcance dos Objetivos de Desenvolvimento Sustentável**'
 author: '**Autores:** <br>[Moisés Vassallo](http://lattes.cnpq.br/8821972747380756) <br>[Rafael Miranda](http://lattes.cnpq.br/4478766390160865) <br>[Victor Valerio](http://lattes.cnpq.br/1989464933096922) <br>[André Medeiros](http://lattes.cnpq.br/4069096016693580) <br>[José Arnaldo Montevechi](http://lattes.cnpq.br/2169751971927037)'
 date: '**Última Atualização:** <br>`r format(Sys.Date(), "%d-%m-%Y")`'
 output:
-  rmdformats::downcute:
-    self_contained: true
-    default_style: 'light'
-    downcute_theme: 'default'
+  rmdformats::robobook:
+    highlight: kate
 ---
 
 
