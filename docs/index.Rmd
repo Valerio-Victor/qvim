@@ -15,7 +15,6 @@ library(magrittr)
 library(ggplot2)
 library(plotly)
 library(crosstalk)
-# library(htmltools)
 library(DT)
 
 
@@ -44,6 +43,8 @@ azul <- '#2A788EFF'
 verde_e <- '#22A884FF'
 verde_c <- '#7AD151FF'
 amarelo <- '#FDE725FF'
+cor_base <- '#428BCA'
+contraste_base <- '#CD6A4C'
 
 
 # IMPORTAÇÃO: --------------------------------------------------------------
@@ -101,6 +102,30 @@ mapa_insumos <- municipios %>%
     insumo == 'urbanismo_habitacao_transporte_seguranca_agricultura_per_capta' ~ 'Urbanismo, Transporte e Segurança',
     insumo == 'outros_per_capta' ~ 'Outros')) 
 
+mapa_produtos <- municipios %>% 
+  dplyr::left_join(base, by = c('code_muni' = 'id_municipio')) %>% 
+  tidyr::drop_na() %>% 
+  dplyr::select(code_muni,
+                name_muni,
+                abbrev_state,
+                name_region,
+                dplyr::contains('ods'),
+                !geom) %>%
+  as.data.frame() %>% 
+  dplyr::select(name_region, 
+                name_muni,
+                dplyr::contains('ods')) %>% 
+  tidyr::pivot_longer(cols = !c(name_region,
+                                name_muni),
+                      names_to = 'produto',
+                      values_to = 'valor') %>% 
+  dplyr::arrange(name_muni, desc(valor)) %>% 
+  dplyr::mutate(produto = dplyr::case_when(
+    produto == 'ods3' ~ 'ODS 3',
+    produto == 'ods4' ~ 'ODS 4',
+    produto == 'ods6' ~ 'ODS 6 ',
+    produto == 'ods11' ~ 'ODS 11'))  
+
 ```
 
 
@@ -125,6 +150,8 @@ Lorem ipsum!
 
 # RESULTADOS PRELIMINARES
 
+## Amostra
+
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
@@ -142,7 +169,7 @@ g2_amostra <-
                             '<br>Região: ', name_region)),
           fill = 'white',
           size = ifelse(mapa_total$name_muni == 'Itajubá', 2, 0.75),
-          color = ifelse(mapa_total$name_muni == 'Itajubá', verde_c, roxo_e)) +
+          color = ifelse(mapa_total$name_muni == 'Itajubá', contraste_base, cor_base)) +
   theme_minimal() + 
   theme(axis.title = element_blank(),
         axis.text = element_blank(),
@@ -171,7 +198,7 @@ g1_amostra <- as.data.frame(mapa_total) %>%
                group = 1, 
                text = paste0('Municípios: ', municipios,
                              '<br>Região: ', regiao)),
-           fill = roxo_e,
+           fill = cor_base,
            width = 0.5) + 
   labs(x = 'Quantidade de Municípios',
        y = '') + 
@@ -183,20 +210,11 @@ g1_amostra <- plotly::ggplotly(g1_amostra, tooltip = 'text') %>%
 g1_amostra
 ```
 
-
-
-
-
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
-
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
 ## Análise dos Insumos
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
-
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
-
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
 ```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
 mapa_insumos_key <- SharedData$new(mapa_insumos)
@@ -250,7 +268,8 @@ bscols(widths = c(6, 6),
 g1_disp_insumos
 ```
 
-                         
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+
 ```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
 tb1_insumos <- datatable(mapa_insumos_key,
                          rownames = FALSE,
@@ -271,9 +290,83 @@ tb1_insumos <- datatable(mapa_insumos_key,
 tb1_insumos
 ```
 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
 ## Análise dos Produtos
 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+mapa_produtos_key <- SharedData$new(mapa_produtos)
+
+g1_disp_produtos <- mapa_produtos_key %>%
+  ggplot() +
+  geom_jitter(aes(x = valor, y = produto, color = name_region, group = 1,
+                  text = paste0('Município: ', name_muni,
+                                '<br>Região: ', name_region,
+                                '<br>Produto: ', produto,
+                                '<br>Valor: ', scales::number(valor,
+                                                              accuracy = 0.01,
+                                                              decimal.mark = ',',
+                                                              big.mark = '.'))),
+              size = ifelse(mapa_produtos$name_muni == 'Itajubá', 2, 0.75)) +
+  scale_x_continuous(labels = scales::number_format(big.mark = '.')) +
+  scale_color_viridis_d() +
+  labs(x = 'Número Índice',
+       y = '',
+       color = '') +
+  theme_classic() +
+  theme(legend.position = 'bottom')
+
+g1_disp_produtos <- plotly::ggplotly(g1_disp_produtos, tooltip = 'text') %>%
+  plotly::layout(legend = list(orientation = 'h',
+                               x = 0,
+                               y = -0.25, 
+                               xanchor='left',
+                               yanchor='bottom')) %>%
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+                         
+                         
+bscols(widths = c(6, 6),
+       filter_checkbox('regiao', 'Região:', mapa_produtos_key, ~name_region, inline = FALSE),
+       list(
+       filter_select('municipio', 
+                     'Município:', 
+                     mapa_produtos_key, 
+                     ~name_muni, 
+                     multiple = TRUE),
+       filter_slider('valor', 
+                     'Valor:', 
+                     mapa_produtos_key, 
+                     ~valor, 
+                     min = 0, 
+                     max = 100,
+                     step = 10)))
+
+g1_disp_produtos
+```
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+tb1_produtos <- datatable(mapa_produtos_key,
+                         rownames = FALSE,
+                         extensions = c('Responsive'),
+                         options = list(
+                           dom = 'tip',
+                           language = list(url = 'https://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json')),
+                         colnames = c('Região',
+                                      'Município',
+                                      'Produto',
+                                      'Valor')) %>% 
+  formatRound(4, 
+              mark = '.',
+              dec.mark = ',',
+              digits = 2)
+
+tb1_produtos
+```
 
 
 
