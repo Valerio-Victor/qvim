@@ -48,12 +48,6 @@ contraste_base <- '#CD6A4C'
 
 
 # IMPORTAÇÃO: --------------------------------------------------------------
-base <- readxl::read_xlsx(path = '../dados/20240926dea_final.xlsx',
-                          sheet = 1) %>%
-  janitor::clean_names() %>% 
-  dplyr::mutate(id_municipio = as.numeric(id_municipio))
-
-
 regioes <- geobr::read_region(year = 2020, 
                               showProgress = FALSE)
 
@@ -65,6 +59,14 @@ estados <- geobr::read_state(year = 2020,
 municipios <- geobr::read_municipal_seat(year = 2010, 
                                          showProgress = FALSE)
 
+base <- readxl::read_xlsx(path = '../dados/20240926dea_final.xlsx',
+                          sheet = 1) %>%
+  janitor::clean_names() %>% 
+  dplyr::mutate(id_municipio = as.numeric(id_municipio))
+
+eficiencia <- readxl::read_xlsx(path = '../dados/resultados_dea_output.xlsx',
+                          sheet = 1) %>%
+  janitor::clean_names()  
 
 # ARRUMAÇÃO: ---------------------------------------------------------------
 mapa_total <- municipios %>% 
@@ -368,7 +370,58 @@ tb1_produtos <- datatable(mapa_produtos_key,
 tb1_produtos
 ```
 
+## Eficiência
 
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+# eficiencia_key <- municipios %>%
+#   dplyr::full_join(eficiencia, by = c('code_muni' = 'dmu')) %>%
+#   dplyr::arrange(desc(score)) %>% 
+#   tidyr::drop_na()
+# 
+# g1_eficiencia <-
+#   ggplot() +
+#   geom_sf(data = estados,
+#           aes(),
+#           fill = 'white') +
+#   geom_sf(data = eficiencia_key,
+#           aes(group = 1,
+#               size = round(score,2),
+#               color = name_region,
+#               text = paste0('Município: ', name_muni,
+#                             '<br>Estado: ', abbrev_state,
+#                             '<br>Região: ', name_region,
+#                             '<br>Eficiência: ', scales::number(score,
+#                                                                accuracy = 0.01,
+#                                                                decimal.mark = ',',
+#                                                                big.mark = '.'))),
+#           fill = 'white') +
+#   scale_color_viridis_d() +
+#   scale_size(range = c(0, 2)) + 
+#   labs(size = '',
+#        color = '') + 
+#   theme_minimal() +
+#   theme(axis.title = element_blank(),
+#         axis.text = element_blank(),
+#         axis.ticks = element_blank(),
+#         panel.grid = element_blank())
+# 
+# g1_eficiencia <- plotly::ggplotly(g1_eficiencia, tooltip = 'text') %>%
+#   plotly::layout(legend = list(orientation = 'h',
+#                                x = 0,
+#                                y = -0.25, 
+#                                xanchor='left',
+#                                yanchor='bottom')) %>%
+#   plotly::config(modeBarButtonsToRemove = plotly_layout)
+# 
+# g1_eficiencia
+
+g1_eficiencia <- eficiencia %>% 
+  ggplot() + 
+  geom_point(aes(x = produto_ponderado/insumo_ponderado, y = score))
+
+
+g1_eficiencia
+```
 
 
 
