@@ -539,7 +539,10 @@ $$v_i, \ u_j \geq 0, \forall \ i, \ j$$
 eficiencia_muni <- eficiencia %>%
   dplyr::full_join(municipios, by = c('dmu' = 'code_muni')) %>% 
   tidyr::drop_na() %>% 
-  dplyr::arrange(desc(score)) 
+  dplyr::arrange(desc(score)) %>% 
+  dplyr::transmute(name_region,
+                   name_muni,
+                   score)
 
 eficiencia_key <- SharedData$new(eficiencia_muni)
 
@@ -561,7 +564,7 @@ g1_eficiencia <- eficiencia_key %>%
   scale_y_continuous(labels = scales::number_format(big.mark = '.')) +
   scale_color_viridis_d() +
   labs(x = '',
-       y = 'Número Índice',
+       y = 'Índice de Eficiência',
        color = '') +
   theme_classic() +
   theme(legend.position = 'bottom',
@@ -601,9 +604,124 @@ g1_eficiencia
 ```
 
 
-## Análise de Sensibilidade
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+tb1_eficiencia <- datatable(eficiencia_key,
+                         rownames = FALSE,
+                         extensions = c('Responsive'),
+                         options = list(
+                           dom = 'tip',
+                           language = list(url = 'https://cdn.datatables.net/plug-ins/1.10.11/i18n/Portuguese-Brasil.json')),
+                         colnames = c('Região',
+                                      'Município',
+                                      'Índice de Eficiência')) %>% 
+  formatRound(3, 
+              mark = '.',
+              dec.mark = ',',
+              digits = 2)
+
+tb1_eficiencia
+```
+
 
 ## O Municipio de Itajubá
+
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+sensibilidade_insumo <- eficiencia %>% 
+  dplyr::filter(dmu == 3132404) %>% 
+  dplyr::select(dif_educacao,
+                dif_outros,
+                dif_saneamento,
+                dif_saude,
+                dif_urbanismo) %>% 
+  tidyr::pivot_longer(cols = dplyr::everything(),
+                      names_to = 'insumo',
+                      values_to = 'valor') %>% 
+  dplyr::mutate(
+    insumo = dplyr::case_when(
+      insumo == 'dif_educacao' ~ 'Educação e \n Cultura',
+      insumo == 'dif_outros' ~ 'Outros',
+      insumo == 'dif_saneamento' ~ 'Saneamento e \n Gestão Ambiental',
+      insumo == 'dif_saude' ~ 'Saúde, \n Desporto e \n Lazer',
+      insumo == 'dif_urbanismo' ~ 'Urbanismo, \n Transporte e \n Segurança'
+    ),
+    valor = -1*round(valor,2)) %>% 
+  dplyr::mutate(insumo = forcats::fct_reorder(insumo, valor)) %>% 
+  ggplot() + 
+  geom_col(aes(y = insumo, x = valor, 
+               group = 1,
+               text = paste0(
+                 'Redução: ', scales::number(
+                   valor,
+                   accuracy = 0.01,
+                   decimal.mark = ',',
+                   big.mark = '.'), ' R$/Habitante')),
+           fill = contraste_base) +
+  labs(x = 'R$/Habitante',
+       y = '',
+       title = 'Meta de Redução') +
+  theme_classic() +
+  theme(legend.position = 'bottom',
+        axis.title.x = ggtext::element_markdown(),
+        axis.title.y = ggtext::element_markdown())
+
+sensibilidade_insumo <- plotly::ggplotly(sensibilidade_insumo, tooltip = 'text') %>%
+  plotly::layout(legend = list(orientation = 'h',
+                               x = 0,
+                               y = -0.25, 
+                               xanchor='left',
+                               yanchor='bottom')) %>%
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+sensibilidade_produto <- eficiencia %>% 
+  dplyr::filter(dmu == 3132404) %>% 
+  dplyr::select(dplyr::contains('prop_dif_ods')) %>% 
+  tidyr::pivot_longer(cols = dplyr::everything(),
+                      names_to = 'produto',
+                      values_to = 'valor') %>% 
+   dplyr::mutate(
+     produto = dplyr::case_when(
+       produto == 'prop_dif_ods3' ~ 'ODS 3',
+       produto == 'prop_dif_ods4' ~ 'ODS 4',
+       produto == 'prop_dif_ods6' ~ 'ODS 6',
+       produto == 'prop_dif_ods11' ~ 'ODS 11'
+     ), 
+     valor = round(valor, 4)) %>% 
+  dplyr::mutate(produto = forcats::fct_reorder(produto, valor)) %>% 
+  ggplot() + 
+  geom_col(aes(y = produto, x = valor, 
+               group = 1,
+               text = paste0(
+                 'Melhoria: ', scales::number(
+                   valor,
+                   accuracy = 0.01,
+                   decimal.mark = ',',
+                   big.mark = '.'), ' %')),
+           fill = cor_base) +
+  scale_x_continuous(labels = scales::number_format(accuracy = 0.01,
+                                                    decimal.mark = ',',
+                                                    big.mark = '.')) + 
+  labs(x = '%',
+       y = '',
+       title = 'Meta de Melhoria') +
+  theme_classic() +
+  theme(legend.position = 'bottom',
+        axis.title.x = ggtext::element_markdown(),
+        axis.title.y = ggtext::element_markdown())
+
+sensibilidade_produto <- plotly::ggplotly(sensibilidade_produto, tooltip = 'text') %>%
+  plotly::layout(legend = list(orientation = 'h',
+                               x = 0,
+                               y = -0.25, 
+                               xanchor='left',
+                               yanchor='bottom')) %>%
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+bscols(widths = c(6, 6),
+       sensibilidade_insumo,
+       sensibilidade_produto)
+
+
+```
 
 # CONCLUSÃO E RECOMENDAÇÕES
 
