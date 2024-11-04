@@ -66,7 +66,8 @@ base <- readxl::read_xlsx(path = '../dados/20240926dea_final.xlsx',
 
 eficiencia <- readxl::read_xlsx(path = '../dados/resultados_dea_output.xlsx',
                           sheet = 1) %>%
-  janitor::clean_names()  
+  janitor::clean_names() %>% 
+  dplyr::mutate(dmu = as.numeric(dmu))
 
 populacao <- populacao <- sidrar::get_sidra(
   api = '/t/4714/n6/all/v/93/p/all') %>%
@@ -531,7 +532,76 @@ $$(\sum_{i = 1}^{r} v_i \ x_{ik}) - (\sum_{j = 1}^{s} u_j \ y_{jk}) = 0, \forall
 $$v_i, \ u_j \geq 0, \forall \ i, \ j$$
 # DISCUSSÃO DE RESULTADOS
 
-## Resultados 
+## Nível de Eficiência dos Municípios
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+eficiencia_muni <- eficiencia %>%
+  dplyr::full_join(municipios, by = c('dmu' = 'code_muni')) %>% 
+  tidyr::drop_na() %>% 
+  dplyr::arrange(desc(score)) 
+
+eficiencia_key <- SharedData$new(eficiencia_muni)
+
+g1_eficiencia <- eficiencia_key %>% 
+  ggplot() +
+  geom_boxplot(aes(y = score, 
+                   x = as.factor(name_region))) +
+  geom_jitter(aes(y = score, 
+                  x = as.factor(name_region), 
+                  color = name_region, group = 1,
+                  text = paste0('Município: ', name_muni,
+                                '<br>Região: ', name_region,
+                                '<br>Eficiência: ', scales::number(
+                                  score,
+                                  accuracy = 0.01,
+                                  decimal.mark = ',',
+                                  big.mark = '.'))),
+              size = 1) +
+  scale_y_continuous(labels = scales::number_format(big.mark = '.')) +
+  scale_color_viridis_d() +
+  labs(x = '',
+       y = 'Número Índice',
+       color = '') +
+  theme_classic() +
+  theme(legend.position = 'bottom',
+        axis.title.x = ggtext::element_markdown(),
+        axis.title.y = ggtext::element_markdown())
+
+g1_eficiencia <- plotly::ggplotly(g1_eficiencia, tooltip = 'text') %>%
+  plotly::layout(legend = list(orientation = 'h',
+                               x = 0,
+                               y = -0.25, 
+                               xanchor='left',
+                               yanchor='bottom')) %>%
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+
+
+bscols(widths = c(6, 6),
+       filter_checkbox('regiao', 'Região:', 
+                       eficiencia_key, 
+                       ~name_region, 
+                       inline = FALSE),
+       list(
+         filter_select('municipio', 
+                       'Município:', 
+                       eficiencia_key, 
+                       ~name_muni, 
+                       multiple = TRUE),
+         filter_slider('valor', 
+                       'Valor:', 
+                       eficiencia_key, 
+                       ~score, 
+                       min = 0, 
+                       max = 1,
+                       step = 0.2)))
+
+g1_eficiencia
+```
+
+
+## Análise de Sensibilidade
 
 ## O Municipio de Itajubá
 
@@ -561,56 +631,6 @@ Sugira ações que o município pode adotar com base nos benchmarks de eficiênc
 
 ## Eficiência
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-# eficiencia_key <- municipios %>%
-#   dplyr::full_join(eficiencia, by = c('code_muni' = 'dmu')) %>%
-#   dplyr::arrange(desc(score)) %>% 
-#   tidyr::drop_na()
-# 
-# g1_eficiencia <-
-#   ggplot() +
-#   geom_sf(data = estados,
-#           aes(),
-#           fill = 'white') +
-#   geom_sf(data = eficiencia_key,
-#           aes(group = 1,
-#               size = round(score,2),
-#               color = name_region,
-#               text = paste0('Município: ', name_muni,
-#                             '<br>Estado: ', abbrev_state,
-#                             '<br>Região: ', name_region,
-#                             '<br>Eficiência: ', scales::number(score,
-#                                                                accuracy = 0.01,
-#                                                                decimal.mark = ',',
-#                                                                big.mark = '.'))),
-#           fill = 'white') +
-#   scale_color_viridis_d() +
-#   scale_size(range = c(0, 2)) + 
-#   labs(size = '',
-#        color = '') + 
-#   theme_minimal() +
-#   theme(axis.title = element_blank(),
-#         axis.text = element_blank(),
-#         axis.ticks = element_blank(),
-#         panel.grid = element_blank())
-# 
-# g1_eficiencia <- plotly::ggplotly(g1_eficiencia, tooltip = 'text') %>%
-#   plotly::layout(legend = list(orientation = 'h',
-#                                x = 0,
-#                                y = -0.25, 
-#                                xanchor='left',
-#                                yanchor='bottom')) %>%
-#   plotly::config(modeBarButtonsToRemove = plotly_layout)
-# 
-# g1_eficiencia
-
-# g1_eficiencia <- eficiencia %>% 
-#   ggplot() + 
-#   geom_point(aes(x = produto_ponderado/insumo_ponderado, y = score))
-# 
-# 
-# g1_eficiencia
-```
 
 
 
