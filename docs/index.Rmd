@@ -8,11 +8,11 @@ output:
     highlight: kate
 ---
 
-
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 # PACOTES: -----------------------------------------------------------------
 library(magrittr)
 library(ggplot2)
+library(ggtext)
 library(plotly)
 library(crosstalk)
 library(DT)
@@ -68,6 +68,13 @@ eficiencia <- readxl::read_xlsx(path = '../dados/resultados_dea_output.xlsx',
                           sheet = 1) %>%
   janitor::clean_names()  
 
+populacao <- populacao <- sidrar::get_sidra(
+  api = '/t/4714/n6/all/v/93/p/all') %>%
+  janitor::clean_names() %>%
+  dplyr::transmute(municipio_codigo = as.numeric(municipio_codigo),
+                   pop = valor)
+
+
 # ARRUMAÇÃO: ---------------------------------------------------------------
 mapa_total <- municipios %>% 
   dplyr::left_join(base, by = c('code_muni' = 'id_municipio')) %>% 
@@ -77,7 +84,6 @@ mapa_total <- municipios %>%
                 abbrev_state,
                 name_region, 
                 geom)
-
 
 mapa_insumos <- municipios %>% 
   dplyr::left_join(base, by = c('code_muni' = 'id_municipio')) %>% 
@@ -130,48 +136,88 @@ mapa_produtos <- municipios %>%
 
 ```
 
-
-
 # INTRODUÇÃO
 
+## Contexto
 
-Lorem ipsum!
+Explique o contexto da análise, mencionando a importância da eficiência dos 
+gastos públicos em relação aos Objetivos de Desenvolvimento Sustentável (ODS).
 
+## Objetivo 
 
-# ANÁLISE ENVOLTÓRIA DE DADOS
+O objetivo do presente relatório consiste em estruturar um indicador de 
+eficiência para municípios brasileiros no processo de atendimento de Objetivos 
+de Desenvolvimento Sustentável (ODS) a partir do empenho do orçamento municipal 
+(alocação de recursos). Para alcançar os resultados foram realizadas as seguintes 
+etapas:
 
+- Seleção de municípios brasileiros;
 
-$$ \min{} \theta_0 = \sum_{i = 1}^{r} v_i \ x_{i0}$$
-$$Sujeito \ à:$$
-$$ \sum_{j = 1}^{s} u_j \ y_{j0} = 1 $$
-$$(\sum_{i = 1}^{r} v_i \ x_{ik}) - (\sum_{j = 1}^{s} u_j \ y_{jk}) = 0, \forall  \ k$$
-$$v_i, \ u_j \geq 0, \forall \ i, \ j$$
-$$$$
+- Levantamento e análise do orçamento municipal recente;
 
-Lorem ipsum!
+- Levantamento e análise dos índices de atendimento municipal 
+aos ODS;
 
-# RESULTADOS PRELIMINARES
+- Estruturação de um indicador de eficiência orçamentária 
+municipal que relaciona empenho orçamentário e atendimento aos
+ODS;
 
-## Amostra
+- Mensuração do nível de eficiência alcançado por cada município;
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+- Análise comparativa dos resultados.
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+Assim, busca-se a partir deste objetivo destacar áreas de melhoria na gestão 
+pública para promover o desenvolvimento sustentável e fornecer insights 
+relevantes para pautar políticas públicas mais eficazes, visando alcançar avanços 
+significativos em direção aos ODS no país.
+
+# MÉTODO DE PESQUISA
+
+## Seleção de Municípios 
+
+Com a finalidade de realizar a análise comparativa de eficiência orçamentária em
+relação aos ODS dos municípios brasileiros, foi necessário definir um critério 
+de seleção de municípios de modo a garatir que a amostra fosse minimamente 
+homogênea ao município de Itajubá-MG (foco deste relatório). Assim, definiu-se 
+como critério o tamanho populacional, assumindo por hipótese que o porte do município
+reflete desafios similares na formulação de políticas públicas e na gestão dos 
+recursos financeiros para atendimento às demandas .
+
+Mais especificamente, foram selecionados municípios na faixa de 75.000 a 150.000
+habitantes. Este intervalo foi escolhido para representar municípios de porte médio,
+os quais, em geral, enfrentam desafios típicos de cidades em desenvolvimento e, ao
+mesmo tempo, possuem capacidade administrativa intermediária para implementar
+políticas voltadas ao cumprimento dos ODS.
+
+A partir do exposto, a amostra foi reduzida a 232 municípios brasileiros, sendo 
+uma amostra suficientemente grande para  captar variações regionais e 
+operacionais de municípios homogêneos. Ao analisar a eficiência destes municípios 
+é possível identificar padrões de eficiência e, além disso,  gerar recomendações 
+de boas práticas a serem implementadas. 
+
+No dashboard abaixo é possível analisar a amostra selecionada. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+mapa_total_pop <- mapa_total %>% 
+  dplyr::left_join(populacao, by = c('code_muni' = 'municipio_codigo')) 
+
+
 g2_amostra <- 
   ggplot() + 
   geom_sf(data = estados, 
           aes(),
           fill = 'white') + 
-  geom_sf(data = mapa_total, 
+  geom_sf(data = mapa_total_pop, 
           aes(group = 1,
               text = paste0('Município: ', name_muni,
                             '<br>Estado: ', abbrev_state,
-                            '<br>Região: ', name_region)),
+                            '<br>Região: ', name_region,
+                            '<br>População: ', scales::number(
+                              pop,
+                              big.mark = '.'))),
           fill = 'white',
-          size = ifelse(mapa_total$name_muni == 'Itajubá', 2, 0.75),
-          color = ifelse(mapa_total$name_muni == 'Itajubá', contraste_base, cor_base)) +
+          size = 1,
+          color = cor_base) +
   theme_minimal() + 
   theme(axis.title = element_blank(),
         axis.text = element_blank(),
@@ -185,26 +231,26 @@ g2_amostra
 ```
 
 ```{r echo=FALSE, fig.align='center', fig.height=3, message=FALSE, warning=FALSE}
-g1_amostra <- as.data.frame(mapa_total) %>% 
-  dplyr::select(name_region) %>% 
+g1_amostra <- as.data.frame(mapa_total) %>%
+  dplyr::select(name_region) %>%
   table() %>% 
   as.data.frame() %>% 
   dplyr::rename('regiao' = name_region,
-                'municipios' = Freq) %>% 
+                'municipios' = Freq) %>%
   dplyr::mutate(regiao = as.character(regiao),
-                municipios = as.numeric(municipios)) %>% 
-  dplyr::arrange(desc(municipios)) %>% 
+                municipios = as.numeric(municipios)) %>%
+  dplyr::arrange(desc(municipios)) %>%
   dplyr::mutate(regiao = forcats::fct_reorder(regiao, municipios)) %>% 
   ggplot() + 
-  geom_col(aes(x = municipios, y = regiao, 
-               group = 1, 
-               text = paste0('Municípios: ', municipios,
-                             '<br>Região: ', regiao)),
-           fill = cor_base,
-           width = 0.5) + 
-  labs(x = 'Quantidade de Municípios',
-       y = '') + 
-  theme_classic()
+  geom_col(aes(y = regiao, x = municipios, group = 1,
+               text = paste0('Região: ', regiao,
+                             '<br>Número de Municípios:', municipios)),
+           fill = cor_base) + 
+  labs(y = '',
+       x = 'Número de Municípios') +
+  theme_minimal() +
+  theme(axis.ticks = element_blank(),
+        panel.grid = element_blank()) 
 
 g1_amostra <- plotly::ggplotly(g1_amostra, tooltip = 'text') %>% 
   plotly::config(modeBarButtonsToRemove = plotly_layout)
@@ -212,9 +258,9 @@ g1_amostra <- plotly::ggplotly(g1_amostra, tooltip = 'text') %>%
 g1_amostra
 ```
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+## Modelo Conceitual Proposto
 
-## Análise dos Insumos
+### Análise dos Insumos
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
@@ -223,7 +269,8 @@ mapa_insumos_key <- SharedData$new(mapa_insumos)
 
 g1_disp_insumos <- mapa_insumos_key %>%
   ggplot() +
-  geom_jitter(aes(x = valor, y = insumo, color = name_region, group = 1,
+  geom_boxplot(aes(y = valor, x = insumo)) + 
+  geom_jitter(aes(y = valor, x = insumo, color = name_region, group = 1,
                   text = paste0('Município: ', name_muni,
                                 '<br>Região: ', name_region,
                                 '<br>Insumo: ', insumo,
@@ -232,14 +279,21 @@ g1_disp_insumos <- mapa_insumos_key %>%
                                                               decimal.mark = ',',
                                                               big.mark = '.'),
                                 ' R$/Habitante')),
-              size = ifelse(mapa_insumos$name_muni == 'Itajubá', 2, 0.75)) +
-  scale_x_continuous(labels = scales::number_format(big.mark = '.')) +
+              size = 1) +
+  scale_y_continuous(labels = scales::number_format(big.mark = '.')) +
+  scale_x_discrete(labels = c('Educação e \n Cultura',
+                              'Outros',
+                              'Saneamento e \n Gestão Ambiental',
+                              'Saúde, \n Desporto e \n Lazer',
+                              'Urbanismo, \n Transporte e \n Segurança')) +
   scale_color_viridis_d() +
-  labs(x = 'R$/Habitante',
-       y = '',
+  labs(x = '',
+       y = 'R$/Habitante',
        color = '') +
   theme_classic() +
-  theme(legend.position = 'bottom')
+  theme(legend.position = 'bottom',
+        axis.title.x = ggtext::element_markdown(),
+        axis.title.y = ggtext::element_markdown())
 
 g1_disp_insumos <- plotly::ggplotly(g1_disp_insumos, tooltip = 'text') %>%
   plotly::layout(legend = list(orientation = 'h',
@@ -293,8 +347,57 @@ tb1_insumos
 ```
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
-## Análise dos Produtos
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+mapa_insumos_2 <- mapa_insumos
+mapa_insumos_key_2 <- SharedData$new(mapa_insumos_2)
+
+g1_box_insumos <- mapa_insumos_key_2 %>%
+  ggplot() +
+  geom_boxplot(aes(y = valor, x = as.factor(insumo), color = name_region)) + 
+  scale_y_continuous(labels = scales::number_format(big.mark = '.')) +
+  scale_x_discrete(labels = c('Educação e \n Cultura',
+                              'Outros',
+                              'Saneamento e \n Gestão Ambiental',
+                              'Saúde, \n Desporto e \n Lazer',
+                              'Urbanismo, \n Transporte e \n Segurança')) +
+  scale_color_viridis_d() +
+  labs(x = '',
+       y = 'R$/Habitante',
+       color = '') +
+  theme_classic() +
+  theme(legend.position = 'bottom',
+        axis.title.x = ggtext::element_markdown(),
+        axis.title.y = ggtext::element_markdown())
+
+g1_box_insumos <- plotly::ggplotly(g1_box_insumos, tooltip = 'text') %>%
+  plotly::layout(legend = list(orientation = 'h',
+                               x = 0,
+                               y = -0.25, 
+                               xanchor='left',
+                               yanchor='bottom')) %>%
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+bscols(widths = c(12),
+       filter_checkbox('regiao', 'Região:', 
+                       mapa_insumos_key_2, 
+                       ~name_region, 
+                       inline = TRUE))
+
+g1_box_insumos
+```
+
+### Análise dos Produtos
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
@@ -303,7 +406,8 @@ mapa_produtos_key <- SharedData$new(mapa_produtos)
 
 g1_disp_produtos <- mapa_produtos_key %>%
   ggplot() +
-  geom_jitter(aes(x = valor, y = produto, color = name_region, group = 1,
+  geom_boxplot(aes(y = valor, x = produto)) + 
+  geom_jitter(aes(y = valor, x = produto, color = name_region, group = 1,
                   text = paste0('Município: ', name_muni,
                                 '<br>Região: ', name_region,
                                 '<br>Produto: ', produto,
@@ -311,11 +415,11 @@ g1_disp_produtos <- mapa_produtos_key %>%
                                                               accuracy = 0.01,
                                                               decimal.mark = ',',
                                                               big.mark = '.'))),
-              size = ifelse(mapa_produtos$name_muni == 'Itajubá', 2, 0.75)) +
-  scale_x_continuous(labels = scales::number_format(big.mark = '.')) +
+              size = 1) +
+  scale_y_continuous(labels = scales::number_format(big.mark = '.')) +
   scale_color_viridis_d() +
-  labs(x = 'Número Índice',
-       y = '',
+  labs(y = 'Número Índice',
+       x = '',
        color = '') +
   theme_classic() +
   theme(legend.position = 'bottom')
@@ -370,6 +474,91 @@ tb1_produtos <- datatable(mapa_produtos_key,
 tb1_produtos
 ```
 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+mapa_produtos_2 <- mapa_produtos
+mapa_produtos_key_2 <- SharedData$new(mapa_produtos_2)
+
+g1_box_produtos <- mapa_produtos_key_2 %>%
+  ggplot() +
+  geom_boxplot(aes(y = valor, x = as.factor(produto),
+                   color = name_region)) + 
+  scale_y_continuous(labels = scales::number_format(big.mark = '.')) +
+  scale_color_viridis_d() +
+  labs(y = 'Número Índice',
+       x = '',
+       color = '') +
+  theme_classic() +
+  theme(legend.position = 'bottom')
+
+g1_box_produtos <- plotly::ggplotly(g1_box_produtos, tooltip = 'text') %>%
+  plotly::layout(legend = list(orientation = 'h',
+                               x = 0,
+                               y = -0.25, 
+                               xanchor='left',
+                               yanchor='bottom')) %>%
+  plotly::config(modeBarButtonsToRemove = plotly_layout)
+
+bscols(widths = c(12),
+       filter_checkbox('regiao', 'Região:', 
+                       mapa_produtos_key_2, 
+                       ~name_region, 
+                       inline = TRUE))
+
+g1_box_produtos
+
+```
+
+## Fonte de Dados
+
+## Indicador de Eficiência
+
+$$ \min{} \theta_0 = \sum_{i = 1}^{r} v_i \ x_{i0}$$
+$$Sujeito \ à:$$
+$$ \sum_{j = 1}^{s} u_j \ y_{j0} = 1 $$
+$$(\sum_{i = 1}^{r} v_i \ x_{ik}) - (\sum_{j = 1}^{s} u_j \ y_{jk}) = 0, \forall  \ k$$
+$$v_i, \ u_j \geq 0, \forall \ i, \ j$$
+# DISCUSSÃO DE RESULTADOS
+
+## Resultados 
+
+## O Municipio de Itajubá
+
+# CONCLUSÃO E RECOMENDAÇÕES
+
+## Síntese
+
+Resuma os principais achados sobre a eficiência dos municípios e o alcance dos ODS.
+
+## Recomendações para o Município de Itajubá
+
+Sugira ações que o município pode adotar com base nos benchmarks de eficiência e nos ODS.
+
+
+
+
+
+# PARA SAIR DE VEZ
+
+
+
+
+
+
+
+
+
 ## Eficiência
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
@@ -415,12 +604,12 @@ tb1_produtos
 # 
 # g1_eficiencia
 
-g1_eficiencia <- eficiencia %>% 
-  ggplot() + 
-  geom_point(aes(x = produto_ponderado/insumo_ponderado, y = score))
-
-
-g1_eficiencia
+# g1_eficiencia <- eficiencia %>% 
+#   ggplot() + 
+#   geom_point(aes(x = produto_ponderado/insumo_ponderado, y = score))
+# 
+# 
+# g1_eficiencia
 ```
 
 
