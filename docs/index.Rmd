@@ -8,7 +8,13 @@ output:
     highlight: kate
 ---
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = 'center')
+```
+
+```{r include=FALSE}
 # PACOTES: -----------------------------------------------------------------
 library(magrittr)
 library(ggplot2)
@@ -156,7 +162,7 @@ estabelecidos pela Organização das Nações Unidas (ONU), que de acordo com
 tem desempenhado um papel fundamental nos debates e nas ações 
 para o desenvolvimento sustentável.
 
-A proposta da ONU é de 17 ODSs os quais são desdobrados em 169 metas que incluem 
+A proposta da ONU é de 17 ODS os quais são desdobrados em 169 metas que incluem 
 uma ampla gama de questões relacionadas ao desenvolvimento sustentável 
 [(Leal Filho et al., 2023)](https://www.sciencedirect.com/science/article/abs/pii/S0959652623012660), 
 incluindo erradicação da pobreza, saúde, educação, 
@@ -171,9 +177,9 @@ Assim, devem ser incorporados como a definição básica de desenvolvimento
 sustentável em metodologias de avaliação de sustentabilidade 
 [(Eberling; Langkau, 2023)](https://www.sciencedirect.com/science/article/pii/S0959652623045419).
 
-Os esforços nacionais para a atingir os ODSs resultam a superação de vários 
+Os esforços nacionais para a atingir os ODS resultam a superação de vários 
 obstáculos, como a priorização de objetivos e metas, a adaptação de estratégias 
-e políticas do país para que estejam em conformidade com os ODSs, o gerenciamento 
+e políticas do país para que estejam em conformidade com os ODS, o gerenciamento 
 de compensações e a capitalização das sinergias entre os objetivos 
 [(Aly et al., 2022)]().
 
@@ -214,20 +220,382 @@ ODS;
 
 Assim, busca-se a partir deste objetivo destacar áreas de melhoria na gestão 
 pública para promover alguns fatores do desenvolvimento sustentável, 
-estruturados a partir das ODS, e fornecer insights relevantes para pautar políticas públicas mais eficazes a partir do estabelecimento de práticas municipais de 
+estruturados a partir das ODS, e fornecer insights relevantes para pautar políticas 
+públicas mais eficazes a partir do estabelecimento de práticas municipais de 
 referência, visando alcançar avanços significativos em direção aos ODS no país.
 
 # FUNDAMENTAÇÃO TEÓRICA
 
 ## Objetivos de Desenvolvimento Sustentável (ODS)
 
+Aprovada em 25 de setembro de 2015, após dois anos de consulta global com 
+organizações da sociedade civil, cientistas, acadêmicos e cidadãos de todo o 
+mundo, a Agenda 2030 para o Desenvolvimento Sustentável propôs 17 Objetivos de 
+Desenvolvimento Sustentável – ODS (Sustainable Development Goals - SDG) 
+juntamente com 169 metas e 231 indicadores. A Agenda 2030 baseia-se no princípio 
+de “não deixar ninguém para trás”, na integração sistêmica dos pilares Sociais, 
+Ambientais e Econômicos de Desenvolvimento Sustentável e na promoção de um mundo 
+baseado nos cinco “Ps”: Pessoas, Planeta, Prosperidade, Paz e Parceria 
+[(Trane et al., 2023)](https://www.mdpi.com/2071-1050/15/9/7055).
+
+Embora o conceito de desenvolvimento sustentável tenha sido oficialmente 
+introduzido em 1987 pela Comissão Mundial sobre Meio Ambiente e Desenvolvimento 
+(World Commission on Environment and Development - WCED), os esforços para se 
+atingir essa meta permanecem insatisfatórios. A Organização das Nações Unidas 
+(ONU) se envolveu ativamente em discussões e esforços relacionados ao 
+desenvolvimento sustentável, pois além de criar a WCED, ela apresentou no ano 
+2000 as oito Metas de Desenvolvimento do Milênio (Millennium Development 
+Goals - MDGs) a serem alcançadas até 2015, com foco em questões como pobreza, 
+educação, igualdade de gênero, mortalidade infantil, saúde, preservação ambiental 
+e cooperação global. Posteriormente, em 2015, a ONU 
+[(United Nations, 2015)](https://sdgs.un.org/)
+mais uma vez assumiu a liderança nas deliberações e apresentou os ODS 
+[(Leal Filho et al., 2023)](https://www.sciencedirect.com/science/article/abs/pii/S0959652623012660).
+
+Os ODS consistem em uma série de 17 metas criadas para tratar das questões 
+urgentes enfrentadas pela comunidade internacional 
+[(Confraria; Ciarli; Noyons, 2024)](https://www.sciencedirect.com/science/article/pii/S0048733323002342). 
+Estas metas, acordadas por todos os 193 estados membros da ONU em 2015, fornecem 
+uma agenda para o desenvolvimento sustentável que aborda desafios econômicos, 
+sociais e ambientais. A exposição dessas questões em 17 objetivos facilita a 
+interpretação e a implementação por parte das empresas, do meio acadêmico, da 
+sociedade civil e dos formuladores de políticas públicas 
+[(Voola et al., 2022)](https://journals.sagepub.com/doi/full/10.1177/14413582221085387).
+
+Os ODS, oferecem uma estrutura abrangente para enfrentar os desafios econômicos, 
+ambientais e sociais em busca de um mundo mais igualitário e sustentável para 
+as gerações futuras 
+(Lim, 2022). 
+Os ODS reconhecem a pesquisa e o 
+desenvolvimento como um processo transformador que envolve esforços coletivos e 
+individuais. Eles reconhecem que as iniciativas de desenvolvimento global 
+bem-sucedidas se baseiam em pesquisas minuciosas e em uma compreensão abrangente 
+do assunto em questão 
+[(Sorooshian, 2024)](https://www.sciencedirect.com/science/article/pii/S0959652624017207). 
+A elaboração de relatórios sobre os 
+ODS pode facilitar esse processo, fornecendo uma estrutura abrangente com 
+objetivos e metas para abordar os ODS econômicos, sociais e ambientais, bem 
+como indicadores adequados para medir o progresso em relação a eles 
+[(Trane et al., 2023)](https://www.mdpi.com/2071-1050/15/9/7055).
+
+Segundo 
+[ONU (2024)](https://www.unicef.org/brazil/objetivos-de-desenvolvimento-sustentavel#:~:text=Os%20ODS%20representam%20um%20plano,pac%C3%ADficas%20e%20inclusivas%20at%C3%A9%202030.)
+, os ODS representam um chamado global à ação para erradicar a 
+pobreza, preservar o meio ambiente e o clima, e assegurar que todas as pessoas, 
+em qualquer lugar, tenham acesso à paz e prosperidade. Esses objetivos refletem 
+os esforços das Nações Unidas para alcançar a Agenda 2030 em todo o mundo. 
+Os 17 ODS podem ser desdobrados em várias 
+metas como podem ser visto a seguir, com base em
+[ONU (2024)](https://www.unicef.org/brazil/objetivos-de-desenvolvimento-sustentavel#:~:text=Os%20ODS%20representam%20um%20plano,pac%C3%ADficas%20e%20inclusivas%20at%C3%A9%202030.).
+
+
+- **ODS 1 - Erradicação da pobreza**: Erradicar a pobreza em todas as formas e em 
+todos os lugares
+
+- **ODS 2 - Fome zero e agricultura sustentável**: Erradicar a fome, alcançar a 
+segurança alimentar, melhorar a nutrição e promover a agricultura sustentável
+
+- **ODS 3 - Saúde e Bem-Estar**: Assegurar uma vida saudável e promover o bem-estar 
+para todas e todos, em todas as idades
+
+- **ODS 4 - Educação de qualidade**: Assegurar a educação inclusiva e equitativa e de 
+qualidade, e promover oportunidades de aprendizagem ao longo da vida para todas 
+e todos
+
+- **ODS 5 - Igualdade de gênero**: Alcançar a igualdade de gênero e empoderar todas as 
+mulheres e meninas
+
+- **ODS 6 - Água potável e saneamento**: Assegurar a disponibilidade e gestão 
+sustentável da água e saneamento para todas e todos
+
+- **ODS 7 - Energia limpa e acessível**: Assegurar o acesso confiável, sustentável, 
+moderno e a preço acessível à energia para todas e todos
+
+- **ODS 8 - Trabalho decente e crescimento econômico**: Promover o crescimento 
+econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo e 
+trabalho decente para todas e todos
+
+- **ODS 9 - Indústria, inovação e infraestrutura**: Construir infraestruturas 
+resilientes, promover a industrialização inclusiva e sustentável e fomentar a 
+inovação
+
+- **ODS 10 - Redução das desigualdades**: Reduzir a desigualdade dentro dos países 
+e entre eles
+
+- **ODS 11 - Cidades e comunidades sustentáveis**: Tornar as cidades e os 
+assentamentos humanos inclusivos, seguros, resilientes e sustentáveis
+
+- **ODS 12 - Consumo e produção responsáveis**: Assegurar padrões de produção e de 
+consumo sustentáveis
+
+- **ODS 13 - Ação contra a mudança global do clima**:	Tomar medidas urgentes para 
+- combater a mudança climática e seus impactos
+
+- **ODS 14 - Vida na água**:	Conservação e uso sustentável dos oceanos, dos mares e 
+dos recursos marinhos para o desenvolvimento sustentável
+
+- **ODS 15 - Vida terrestre**: Proteger, recuperar e promover o uso sustentável dos 
+ecossistemas terrestres, gerir de forma sustentável as florestas, combater a 
+desertificação, deter e reverter a degradação da terra e deter a perda de 
+biodiversidade
+
+- **ODS 16 - Paz, Justiça e Instituições Eficazes**: Promover sociedades pacíficas e 
+inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça 
+para todos e construir instituições eficazes, responsáveis e inclusivas em todos 
+os níveis
+
+- **ODS 17 - Parcerias e meios de implementação**: Fortalecer os meios de 
+implementação e revitalizar a parceria global para o desenvolvimento sustentável
+
+Apesar de serem amplos e ambiciosos, os ODS enfrentam contradições inerentes, 
+principalmente entre a sustentabilidade ambiental e o desenvolvimento 
+socioeconômico 
+[(Voola et al., 2022)](https://journals.sagepub.com/doi/full/10.1177/14413582221085387).
+No entanto, os ODS se transformaram em uma 
+linguagem e uma estrutura universais, unificando as partes interessadas para 
+enfrentar esses desafios de forma colaborativa. Devido à natureza complexa dos 
+desafios da sustentabilidade, a inovação é considerada crucial para soluções 
+transformadoras e sustentáveis que não necessariamente exigem grande quantidade 
+de recursos financeiros 
+[(Voola et al., 2022)](https://journals.sagepub.com/doi/full/10.1177/14413582221085387).
+
+De acordo com a literatura, há um progresso insuficiente em direção à realização 
+dos ODS, e existe a possibilidade de a comunidade global não atingir essas 
+metas até o ano previsto de 2030. Para efetivar a Agenda 2030, será necessário 
+realizar um investimento significativo em pesquisa e desenvolvimento. A 
+implementação dos resultados das pesquisas pode ser facilitada por meio de uma 
+estratégia colaborativa entre diversas partes interessadas, incluindo a 
+comunidade acadêmica, autoridades e indivíduos civis 
+[(Sorooshian, 2024)](https://www.sciencedirect.com/science/article/pii/S0959652624017207).
+
+Entre as principais iniciativas nacionais para promoção ODS, pode-se destacar o 
+Programa Cidades Sustentáveis (PCS), que se fundamenta no esforço de integração 
+de dimensões sociais, econômicas, ambientais, políticas e culturais no 
+planejamento municipal Desenvolvido pelo Instituto Cidades 
+Sustentáveis, este esforço se concentra na mobilização de governos locais para a 
+implementação de políticas públicas estruturantes que enfrentem a desigualdade 
+social e promovam o desenvolvimento de cidades mais justas e sustentáveis a 
+partir de eixos temáticos alinhados aos Objetivos de Desenvolvimento Sustentável 
+(ODS), das Nações Unidas 
+[(PCS 2024)](https://www.cidadessustentaveis.org.br/paginas/pcs). 
+
+Entre os destaques do PCS estão seus 260 indicadores específicos, que 
+possibilitam medir o progresso dos ODS em cada município brasileiro. Esses 
+indicadores são utilizados para pontuar o desempenho municipal em áreas como 
+saúde, educação, segurança, mobilidade, habitação, entre outras fornecendo, 
+portanto, uma infraestrutura de dados crucial na promoção da Agenda 2030 no 
+Brasil 
+[(PCS 2024)](https://www.cidadessustentaveis.org.br/paginas/pcs). 
+
+Cumpre ressaltar que além do PCS há outras ações relevantes, como o Sistema de 
+Indicadores de Desenvolvimento Sustentável (IDS) do Instituto Brasileiro de 
+Geografia e Estatística 
+[(IBGE, 2015)](https://www.ibge.gov.br/geociencias/informacoes-ambientais/estatisticas-e-indicadores-ambientais/15838-indicadores-de-desenvolvimento-sustentavel.html), 
+que fornece dados abrangentes sobre o progresso 
+nacional em relação aos ODS, e o 
+[Observatório dos ODS](https://observatorioods.wordpress.com/), 
+uma plataforma colaborativa que reúne organizações da sociedade civil, 
+universidades e governos para monitorar a implementação da Agenda 2030 no Brasil. 
+Essas iniciativas complementam os esforços do PCS e demonstram o compromisso 
+brasileiro com a sustentabilidade e a redução das desigualdades.
+
+## Orçamento Público Municipal
+
+O Ministério do Planejamento e Orçamento do Brasil, em 2024, caracteriza o 
+orçamento público como um mecanismo de planejamento estatal que inclui os gastos 
+governamentais para um determinado ano, em conformidade com a projeção de 
+receitas. Este é o registro no qual o governo concentra as estimativas de todas 
+as receitas a serem obtidas e os planos relativos à sua alocação 
+[(Paula; Pinho, 2023)](https://www.scielo.br/j/ram/a/9ZK4sxbDFJxBhbzcywj5nkN/).
+
+Portanto, é correto afirmar que o orçamento público possui uma dimensão política, 
+pois apresenta as políticas governamentais que englobam, principalmente, 
+decisões de interesse público, atendendo às demandas e necessidades dos três 
+Poderes, seus órgãos e entidades. Estes atuam de forma participativa na 
+elaboração, aprovação e fiscalização do orçamento 
+[(Abraham, 2013)](https://www.grupogen.com.br/juridica/e-book-curso-de-direito-financeiro-brasileiro-8-edicao-2025-marcus-abraham-editora-forense-9788530995706?srsltid=AfmBOoq_tx-eLcNgoHk2IGCu8HufS-90Bkl6TsNHdEmn2gTUwbXZwdEU).
+
+No Brasil, um país de vastas dimensões territoriais, composto por 26 estados, 
+além do Distrito Federal, e 5.570 municípios, cada entidade possui sua própria 
+autonomia fiscal, administrativa e política. Essas unidades apresentam uma ampla 
+diversidade em termos de área, população, densidade demográfica, diversificação 
+econômica e outros indicadores. O pacto federativo brasileiro envolve três 
+níveis de governo: União, estados (incluindo o Distrito Federal) e municípios 
+[(Paula; Pinho, 2023)](https://www.scielo.br/j/ram/a/9ZK4sxbDFJxBhbzcywj5nkN/).
+
+De acordo com dados de 2019 (IBGE, 2019), considerando a receita tributária 
+arrecadada no país, a União detém 58%, seguida pelos estados e pelo Distrito 
+Federal, que somam 34%, e pelos municípios, com apenas 8% da receita tributária 
+total. Apesar da menor arrecadação, estados e municípios enfrentam dificuldades 
+para administrar plenamente suas atribuições com seus próprios recursos, 
+necessitando de uma redistribuição da receita tributária do governo central para 
+garantir a prestação de serviços à população. Essa necessidade de redistribuição 
+questiona a verdadeira autonomia financeira dos estados e municípios 
+[(Paula; Pinho, 2023)](https://www.scielo.br/j/ram/a/9ZK4sxbDFJxBhbzcywj5nkN/).
+
+O orçamento é estruturado em **funções** e **subfunções**, que organizam as 
+despesas públicas conforme áreas de atuação governamental. Ou seja, pode-se agrupar
+os gastos públicos municipais por critério funcional de modo evidenciar as
+destinações dos recursos
+[MOG nº 42/1999](https://www.congressonacional.leg.br/legislacao-e-publicacoes/glossario-orcamentario/-/orcamentario/termo/classificacao_funcional). Assim, esta classificação permite maior transparência e eficiência 
+na aplicação dos recursos públicos. Abaixo são listadas as funções.
+
+- **Legislativa**
+  - Abrange atividades relacionadas à elaboração de leis e à fiscalização do Executivo, como _Ação Legislativa_ e _Controle Externo_.
+
+- **Judiciária**
+  - Inclui ações do sistema de justiça, como _Ação Judiciária_ e _Defesa do Interesse Público no Processo Judiciário_.
+
+- **Essencial à Justiça**
+  - Envolve atividades que asseguram o funcionamento do sistema de justiça, como _Defesa da Ordem Jurídica_ e _Representação Judicial e Extrajudicial_.
+
+- **Administração**
+  - Refere-se à gestão pública, incluindo subfunções como _Planejamento e Orçamento_, _Administração Geral_, _Tecnologia da Informação_ e _Formação de Recursos Humanos_.
+
+- **Defesa Nacional**
+  - Abrange atividades militares de proteção e soberania, como _Defesa Aérea_, _Defesa Naval_ e _Defesa Terrestre_.
+
+- **Segurança Pública**
+  - Envolve ações de proteção da sociedade, como _Policiamento_, _Defesa Civil_ e _Informação e Inteligência_.
+
+- **Relações Exteriores**
+  - Representa a atuação diplomática, incluindo _Relações Diplomáticas_ e _Cooperação Internacional_.
+
+- **Assistência Social**
+  - Foca na proteção de grupos vulneráveis, com subfunções como _Assistência ao Idoso_ e _Assistência à Criança e ao Adolescente_.
+
+- **Previdência Social**
+  - Inclui ações relacionadas à seguridade, como _Previdência Básica_ e _Previdência Complementar_.
+
+- **Saúde**
+  - Abrange atividades de promoção à saúde, como _Atenção Básica_, _Assistência Hospitalar_ e _Vigilância Sanitária_.
+
+- **Trabalho**
+  - Refere-se a políticas de emprego, como _Proteção ao Trabalhador_ e _Fomento ao Trabalho_.
+
+- **Educação**
+  - Inclui investimentos em ensino, como _Ensino Fundamental_, _Educação Infantil_ e _Ensino Superior_.
+
+- **Cultura**
+  - Promove ações culturais, como _Patrimônio Histórico_ e _Difusão Cultural_.
+
+- **Direitos da Cidadania**
+  - Abrange atividades de proteção dos direitos, como _Direitos Individuais e Coletivos_ e _Assistência aos Povos Indígenas_.
+
+- **Urbanismo**
+  - Relaciona-se à infraestrutura urbana, como _Infraestrutura Urbana_ e _Serviços Urbanos_.
+
+- **Habitação**
+  - Trata de programas habitacionais, como _Habitação Rural_ e _Habitação Urbana_.
+
+- **Saneamento**
+  - Envolve ações de infraestrutura hídrica, como _Saneamento Básico Urbano_ e _Saneamento Básico Rural_.
+
+- **Gestão Ambiental**
+  - Foca na preservação e recuperação ambiental, como _Controle Ambiental_ e _Recuperação de Áreas Degradadas_.
+
+- **Ciência e Tecnologia**
+  - Promove o desenvolvimento científico e tecnológico, como _Difusão do Conhecimento Científico_ e _Desenvolvimento Tecnológico_.
+
+- **Agricultura**
+  - Apoia o setor agropecuário, com ações como _Promoção da Produção Vegetal_ e _Extensão Rural_.
+
+- **Organização Agrária**
+  - Inclui atividades como _Reforma Agrária_ e _Colonização_.
+
+- **Indústria**
+  - Refere-se ao desenvolvimento industrial, como _Produção Industrial_ e _Propriedade Industrial_.
+
+- **Comércio e Serviços**
+  - Abrange setores comerciais e de serviços, como _Turismo_ e _Comércio Exterior_.
+
+- **Comunicações**
+  - Foca em infraestrutura de comunicação, como _Telecomunicações_ e _Comunicações Postais_.
+
+- **Energia**
+  - Relaciona-se à produção e distribuição de energia, como _Energia Elétrica_ e _Biocombustíveis_.
+
+- **Transporte**
+  - Inclui ações como _Transporte Rodoviário_ e _Transporte Ferroviário_.
+
+- **Desporto e Lazer**
+  - Promove atividades recreativas e esportivas, como _Lazer_ e _Desporto Comunitário_.
+
+- **Encargos Especiais**
+  - Representa despesas específicas, como _Serviço da Dívida Interna_ e _Outras Transferências_.
+
+A classificação funcional do orçamento é essencial para organizar os gastos 
+públicos de forma eficiente e transparente, permitindo o acompanhamento e 
+avaliação do uso dos recursos em cada área de atuação governamental.
+
 ## Análise Envoltória de Dados (DEA)
+
+A Análise Envoltória de Dados (DEA), desenvolvida por 
+[Charnes et al. (1978)](https://www.sciencedirect.com/science/article/pii/0377221778901388), 
+é uma técnica matemática de programação linear utilizada para medir a eficiência 
+relativa de unidades que desempenham atividades similares, conhecidas como 
+Unidades Tomadoras de Decisão (DMUs - Decision Making Units). Um dos grandes 
+diferenciais da DEA é que ela não exige a definição de uma relação funcional 
+prévia entre os insumos (inputs) e os produtos (outputs), como ocorre em 
+outras abordagens estatísticas. Isso a torna especialmente útil quando a relação 
+entre as variáveis é complexa ou desconhecida 
+[(Benito et al., 2019)](https://www.sciencedirect.com/science/article/pii/S0264275118317220).
+
+A técnica constrói uma fronteira de eficiência, baseada no desempenho das DMUs 
+mais produtivas dentro de um conjunto analisado. Cada DMU é comparada com essa 
+fronteira, o que permite calcular sua eficiência relativa. Os valores de 
+eficiência variam entre 0 e 1, sendo que DMUs com valor 1 são consideradas 
+eficientes, enquanto valores menores que 1 indicam ineficiência 
+[(Sinuany-Stern, 2022)](https://www.sciencedirect.com/science/article/pii/S0377221722008578). 
+A eficiência é calculada como uma razão entre a soma ponderada dos outputs e a 
+soma ponderada dos inputs. 
+
+O que torna a DEA ainda mais poderosa é sua flexibilidade na escolha dos pesos. 
+Cada DMU é livre para atribuir pesos às variáveis de forma que maximize sua 
+eficiência dentro do modelo, respeitando certas restrições. Isso garante que 
+as DMUs sejam avaliadas sob as condições mais favoráveis possíveis, evitando 
+julgamentos preconcebidos sobre a importância relativa de inputs e outputs 
+[(Hatami-Marbini; Toloo, 2017)](https://www.sciencedirect.com/science/article/pii/S0957417416307126).
+
+Além de não requerer uma relação funcional prévia, a DEA possui outras vantagens 
+importantes, das quais pode-se enfatizar:
+
+1. **Identificação de melhorias específicas**: O modelo sugere como cada DMU 
+pode ajustar seus inputs e outputs para se tornar eficiente, servindo como uma 
+ferramenta prática de gestão 
+[(Al-Refaie, 2014)](https://www.sciencedirect.com/science/article/pii/S1569190X13001706).
+
+2. **Aplicação a múltiplos contextos**: A técnica é amplamente utilizada em 
+áreas como saúde, educação, transporte e sustentabilidade, devido à sua 
+adaptabilidade.
+
+3. **Análise comparativa justa**: Cada DMU é avaliada com base em suas 
+características únicas, mas sempre em comparação com as melhores práticas 
+observadas no grupo analisado.
+
+O primeiro modelo DEA, conhecido como CCR (Charnes, Cooper e Rhodes), assume 
+retornos constantes de escala, ou seja, considera que a eficiência de uma DMU 
+não é influenciada por seu tamanho. Este modelo clássico serve como base para 
+variações mais avançadas que incorporam retornos variáveis de escala ou outras 
+características específicas do contexto analisado 
+[(Miranda et al., 2017)](https://www.sciencedirect.com/science/article/pii/S0377221717303491).
+
+Como base no descrito o modelo de Análise Envoltória de dados (DEA-CCR) orientado
+a produto pode ser assim formulado:
+
 
 $$ \min{} \theta_0 = \sum_{i = 1}^{r} v_i \ x_{i0}$$
 $$Sujeito \ à:$$
 $$ \sum_{j = 1}^{s} u_j \ y_{j0} = 1 $$
 $$(\sum_{j = 1}^{s} u_j \ y_{jk}) - (\sum_{i = 1}^{r} v_i \ x_{ik}) \leq 0, \forall  \ k$$
 $$v_i, \ u_j \geq 0, \forall \ i, \ j$$
+
+No modelo DEA orientado a produto, o objetivo é maximizar os outputs de uma DMU 
+enquanto se mantêm os níveis de inputs fixos. A interpretação prática dessa 
+abordagem é especialmente útil em situações onde os recursos disponíveis (insumos) 
+são limitados ou já estão plenamente utilizados, e o foco da gestão está em 
+aumentar os resultados obtidos com esses recursos.
+
 
 # MÉTODO DE PESQUISA
 
@@ -250,7 +618,7 @@ políticas voltadas ao cumprimento dos ODS.
 A partir do exposto, a amostra foi reduzida a 232 municípios brasileiros. 
 No dashboard abaixo é possível analisar a amostra selecionada. 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+```{r echo=FALSE}
 mapa_total_pop <- mapa_total %>% 
   dplyr::left_join(populacao, by = c('code_muni' = 'municipio_codigo')) 
 
@@ -283,7 +651,7 @@ g2_amostra <- plotly::ggplotly(g2_amostra, tooltip = 'text') %>%
 g2_amostra 
 ```
 
-```{r echo=FALSE, fig.align='center', fig.height=3, message=FALSE, warning=FALSE}
+```{r echo=FALSE, fig.height=3}
 g1_amostra <- as.data.frame(mapa_total) %>%
   dplyr::select(name_region) %>%
   table() %>% 
@@ -327,17 +695,85 @@ país.
 
 ## Modelo Conceitual Proposto
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, out.width='75%'}
+O modelo conceitual proposto neste trabalho organiza os municípios brasileiros 
+com população entre 75 mil e 150 mil habitantes como as Unidades de Decisão 
+(DMU's, do inglês Decision Making Units). A análise utiliza a técnica de Análise 
+Envoltória de Dados (DEA) para avaliar a eficiência do gasto público em 
+promover Objetivos de Desenvolvimento Sustentável (ODS) selecionados.
+
+Os insumos foram agrupados de forma a refletir a destinação dos orçamentos 
+municipais, organizados em cinco grandes categorias funcionais:
+
+- **Saúde e Desporto e Lazer**: Representa os gastos destinados à promoção do 
+bem-estar físico e mental, além de atividades recreativas e esportivas. Este 
+agrupamento está diretamente associado ao ODS 3, que busca assegurar uma vida 
+saudável.
+
+- **Educação e Cultura**: Inclui investimentos na formação educacional e 
+iniciativas culturais. Este insumo está vinculado ao ODS 4, relacionado à 
+garantia de uma educação inclusiva e equitativa.
+
+- **Saneamento e Gestão Ambiental**: Combina gastos relacionados à 
+infraestrutura de saneamento e ações de preservação ambiental. Este agrupamento 
+está alinhado ao ODS 6, que trata do acesso à água potável e ao saneamento adequado.
+
+- **Urbanismo, Habitação, Transporte, Segurança Pública e Agricultura**: Envolve 
+despesas para melhoria de infraestrutura urbana, habitação, mobilidade, 
+segurança pública e atividades agrícolas. Estes componentes estão relacionados 
+ao ODS 11, que busca promover cidades inclusivas e sustentáveis.
+
+- **Outros**: Representa categorias complementares, como administração pública, 
+assistência social, comércio e serviços, ciência e tecnologia, entre outras 
+funções menos diretamente relacionadas aos ODS avaliados, mas essenciais para o 
+funcionamento geral dos municípios.
+
+Assim, obviamente os produtos considerados no modelo correspondem aos resultados 
+alcançados pelos municípios em relação aos respectivos ODS:
+
+- **ODS 3**: Indicadores de saúde, qualidade de vida e bem-estar da população.
+- **ODS 4**: Níveis de acesso e qualidade da educação.
+- **ODS 6**: Cobertura de saneamento básico e acesso à água potável.
+- **ODS 11**: Planejamento urbano sustentável, habitação e transporte eficiente.
+
+Assim, o agrupamento dos orçamentos municipais em insumos 
+específicos segue a lógica de maximizar a relação entre os recursos aplicados e 
+os objetivos globais definidos pelos ODS. A segmentação reflete uma compreensão 
+integrada das políticas públicas, em que gastos de natureza semelhante são 
+analisados em conjunto para avaliar sua eficiência em gerar impactos mensuráveis.
+
+Por exemplo, o investimento em saúde e desporto/lazer não apenas melhora os 
+indicadores de saúde, mas também contribui para o bem-estar geral da população, 
+fortalecendo o ODS 3. Gastos em saneamento e gestão ambiental impactam diretamente 
+o ODS 6 ao mitigar problemas de saúde pública e promover a preservação ambiental.
+Assim por diante. A Figura abaixo consiste em uma representação do modelo 
+conceitual proposto.
+
+```{r echo=FALSE}
 
 knitr::include_graphics(path = 'modelo_conceitual.png')
 ```
 
+A análise proposta é inovadora e essencial, pois:
+
+- Avalia a eficiência: Identifica municípios que obtêm melhores resultados com 
+menos recursos, oferecendo exemplos de boas práticas.
+
+- Fomenta a transparência: Promove a compreensão clara de como os recursos 
+públicos estão sendo utilizados para alcançar os ODS.
+
+- Apoia o planejamento estratégico: Auxilia gestores públicos a priorizar ações 
+e ajustar políticas para melhorar a alocação de recursos.
+
+Em síntese, este trabalho contribui significativamente para a literatura sobre 
+eficiência do setor público, ao mesmo tempo em que oferece ferramentas práticas 
+para otimizar o uso de recursos municipais na promoção do desenvolvimento 
+sustentável.
 
 ### Análise dos Insumos
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 mapa_insumos_key <- SharedData$new(mapa_insumos)
 
 g1_disp_insumos <- mapa_insumos_key %>%
@@ -399,7 +835,7 @@ g1_disp_insumos
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 tb1_insumos <- datatable(mapa_insumos_key,
                          rownames = FALSE,
                          extensions = c('Responsive'),
@@ -431,7 +867,7 @@ Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 mapa_insumos_2 <- mapa_insumos
 mapa_insumos_key_2 <- SharedData$new(mapa_insumos_2)
 
@@ -474,7 +910,7 @@ g1_box_insumos
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 mapa_produtos_key <- SharedData$new(mapa_produtos)
 
 g1_disp_produtos <- mapa_produtos_key %>%
@@ -528,7 +964,7 @@ g1_disp_produtos
 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 tb1_produtos <- datatable(mapa_produtos_key,
                          rownames = FALSE,
                          extensions = c('Responsive'),
@@ -559,7 +995,7 @@ Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
 Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 mapa_produtos_2 <- mapa_produtos
 mapa_produtos_key_2 <- SharedData$new(mapa_produtos_2)
 
@@ -598,7 +1034,7 @@ g1_box_produtos
 ## Nível de Eficiência dos Municípios
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+```{r echo=FALSE}
 eficiencia_muni <- eficiencia %>%
   dplyr::full_join(municipios, by = c('dmu' = 'code_muni')) %>% 
   tidyr::drop_na() %>% 
@@ -667,7 +1103,7 @@ g1_eficiencia
 ```
 
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 tb1_eficiencia <- datatable(eficiencia_key,
                          rownames = FALSE,
                          extensions = c('Responsive'),
@@ -688,7 +1124,7 @@ tb1_eficiencia
 
 ## O Municipio de Itajubá
 
-```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+```{r echo=FALSE}
 sensibilidade_insumo <- eficiencia %>% 
   dplyr::filter(dmu == 3132404) %>% 
   dplyr::select(dif_educacao,
@@ -800,12 +1236,134 @@ Sugira ações que o município pode adotar com base nos benchmarks de eficiênc
 
 
 
+# APÊNDICE A - ÍNDICE DE INDICADORES POR ODS
+
+- **ODS 3 - Saúde e Bem-Estar**
+
+  - Acidentes de trânsito
+  - Atropelamentos
+  - Cobertura de vacinas
+  - Detecção de hepatite A, B, C e D
+  - Gasto municipal em saúde em proporção ao gasto total em saúde
+  - Gravidez na adolescência
+  - Internação hospitalar por doenças crônicas
+  - Investimento em saúde preventiva
+  - Leitos hospitalares
+  - Mortalidade infantil (crianças menores de um ano)
+  - Mortalidade materna
+  - Mortalidade na infância (crianças menores de 5 anos de idade)
+  - Mortalidade neonatal (crianças de 0 a 27 dias)
+  - Mortalidade por Aids
+  - Mortalidade por dengue
+  - Mortalidade por doenças crônicas não transmissíveis
+  - Mortes no trânsito
+  - Orçamento municipal para a saúde, per capita
+  - Orçamento municipal para a saúde sexual e reprodutiva
+  - Pessoas infectadas com dengue
+  - Política municipal de assistência aos usuários de drogas e dependentes de álcool
+  - População atendida por equipes de saúde da família
+  - Pré-natal insuficiente
+  - Prevalência de diabetes melito
+  - Unidades Básicas de Saúde
+  - Unidades de saúde básica que oferecem serviços de planejamento familiar
+
+- **ODS 4 - Educação de qualidade**
+
+  - Acervo de livros infanto-juvenis
+  - Acervo de livros para adultos
+  - Acesso à internet nas escolas dos ensinos fundamental e médio
+  - Adequação idade/ano no Ensino Fundamental
+  - Alunos com acesso à quadra esportiva (coberta e descoberta)
+  - Alunos com deficiência na rede regular de ensino
+  - Alunos, professores e funcionários vítimas de violência no ambiente escolar
+  - Analfabetismo funcional da população
+  - Analfabetismo na população com 15 anos ou mais
+  - Campanhas de educação cidadã
+  - Centros culturais, casas e espaços de cultura
+  - Crianças e jovens de 4 a 17 anos na escola
+  - Crianças plenamente alfabetizadas até os 8 anos de idade
+  - Demanda atendida de vagas na pré-escola
+  - Demanda atendida de vagas no ensino fundamental
+  - Demanda atendida de vagas no ensino médio
+  - Demanda atendida em creches
+  - Diversidade sociocultural no ensino municipal
+  - Educação de Jovens e Adultos (EJA) integrada à educação profissional
+  - Educação em tempo integral na pré-escola
+  - Educação em tempo integral nas creches
+  - Educação em tempo integral no Ensino Fundamental – anos finais
+  - Educação em tempo integral no Ensino Fundamental – anos iniciais
+  - Ensino superior concluído
+  - Escolas com conselhos ativos
+  - Escolas com dependências adequadas a pessoas com deficiência
+  - Escolas com recursos para Atendimento Educacional Especializado
+  - Escolas com temas transversais nos parâmetros curriculares
+  - Escolas da rede municipal que abrem aos finais de semana para a comunidade
+  - Escolas públicas com esporte educacional no turno obrigatório
+  - Índice de Desenvolvimento da Educação Básica (IDEB) - anos finais
+  - Índice de Desenvolvimento da Educação Básica (IDEB) - anos iniciais
+  - Jovens com ensino médio concluído até os 19 anos de idade
+  - Professores com formação em nível superior
+  - Professores com licenciatura
+  - Professores da educação básica com formação em educação especial
+  - Prova Brasil - Língua portuguesa
+  - Prova Brasil - Matemática
+  - Razão entre as taxas de escolarização por gênero
+  - Razão entre o número de alunos e professores na pré-escola
+  - Razão entre o número de alunos e professores no ensino fundamental
+  - Razão entre o número de alunos e professores no ensino médio
+
+- **ODS 6 - Água potável e saneamento**
+
+  - Acesso permanente e sustentável à água potável
+  - Áreas de mananciais protegidas
+  - Avaliação oferta/demanda do abastecimento urbano de água
+  - Consumo de água per capita
+  - Doenças relacionadas ao saneamento ambiental inadequado
+  - Esgoto que não recebe nenhum tipo de tratamento
+  - Participação do município no Comitê de Bacias
+  - Perda de água tratada
+  - Planos de médio e longo prazos para recursos hídricos
+  - Rede de esgoto (domicílios sem ligação com a rede de esgoto)
+  - Rios e córregos classificados com, pelo menos, "bom estado" segundo critérios oficiais
+
+- **ODS 11 - Cidades e comunidades sustentáveis**
+
+  - Ações de preservação, valorização e difusão do patrimônio material e imaterial
+  - Área urbana e rural do município
+  - Área verde na zona urbana
+  - Calçadas acessíveis
+  - Ciclovias e ciclofaixas exclusivas
+  - Congestionamentos
+  - Conselho municipal de cultura e patrimônio histórico
+  - Consórcios públicos e Parcerias Público Privadas
+  - Corredores exclusivos de ônibus
+  - Custo anual dos acidentes de trânsito
+  - Déficit habitacional
+  - Domicílios em áreas de risco
+  - Edifícios novos e reformados com certificação de sustentabilidade ambiental
+  - Equipamentos esportivos
+  - Frota de ônibus com acessibilidade para pessoas com deficiência
+  - Gerenciamento de riscos
+  - Impactos humanos e materiais dos eventos climáticos extremos
+  - Legislação específica para temas ambientais
+  - Número de mortes por desastres socioambientais
+  - Orçamento de transporte destinado a transporte público
+  - Peso da tarifa de transporte público no orçamento mensal
+  - Planejamento integrado entre todas as secretarias
+  - Plano de gestão integrada de resíduos sólidos
+  - Plano Diretor participativo
+  - População idosa
+  - População residente em aglomerados subnormais
+  - Propriedade de imóveis
+  - Proximidade de transporte público
+  - Recursos públicos municipais para cultura
+  - Tempo médio gasto da moradia ao local de trabalho
+  - Transporte público por ônibus com energia sustentável
 
 
 
 
-
-
+ 
 
 
 
