@@ -141,16 +141,61 @@ mapa_produtos <- municipios %>%
 
 ## Contexto
 
-Explique o contexto da análise, mencionando a importância da eficiência dos 
-gastos públicos em relação aos Objetivos de Desenvolvimento Sustentável (ODS).
+O desenvolvimento sustentável é uma meta global cada vez mais urgente, 
+especialmente em países como o Brasil, marcado por uma grande diversidade 
+socioeconômica e ambiental, mas também por desafios persistentes de desigualdade, 
+pobreza e degradação ambiental. Dentro desse contexto, a compreensão do progresso 
+em direção aos Objetivos de Desenvolvimento Sustentável (ODS) em nível local 
+torna-se crucial para informar políticas públicas e estratégias de desenvolvimento 
+que promovam um futuro equilibrado e próspero para todas as comunidades.
+
+Na última década, os ODS têm se consolidado como um marco importante para 
+orientar as políticas de desenvolvimento em todo o mundo. Os ODS foram 
+estabelecidos pela Organização das Nações Unidas (ONU), que de acordo com 
+[Leal Filho et al. (2023)](https://www.sciencedirect.com/science/article/abs/pii/S0959652623012660), 
+tem desempenhado um papel fundamental nos debates e nas ações 
+para o desenvolvimento sustentável.
+
+A proposta da ONU é de 17 ODSs os quais são desdobrados em 169 metas que incluem 
+uma ampla gama de questões relacionadas ao desenvolvimento sustentável 
+[(Leal Filho et al., 2023)](https://www.sciencedirect.com/science/article/abs/pii/S0959652623012660), 
+incluindo erradicação da pobreza, saúde, educação, 
+igualdade de gênero, energia limpa, crescimento econômico e proteção ambiental. 
+No entanto, para que esses objetivos sejam alcançados de forma eficaz, é 
+essencial compreender como eles se manifestam em nível local e como os recursos 
+disponíveis são alocados para sua consecução. 
+
+Desde sua criação em 2015, os 17 ODS foram reconhecidos mutuamente por todos os
+estados-membros da ONU como a representação do desenvolvimento sustentável. 
+Assim, devem ser incorporados como a definição básica de desenvolvimento 
+sustentável em metodologias de avaliação de sustentabilidade 
+[(Eberling; Langkau, 2023)](https://www.sciencedirect.com/science/article/pii/S0959652623045419).
+
+Os esforços nacionais para a atingir os ODSs resultam a superação de vários 
+obstáculos, como a priorização de objetivos e metas, a adaptação de estratégias 
+e políticas do país para que estejam em conformidade com os ODSs, o gerenciamento 
+de compensações e a capitalização das sinergias entre os objetivos 
+[(Aly et al., 2022)]().
+
+Isto é, A promoção dos Objetivos de Desenvolvimento Sustentável (ODS) em nível 
+municipal apresenta desafios significativos, especialmente em um país como o 
+Brasil, caracterizado por grandes disparidades regionais e socioeconômicas. Os 
+gestores municipais frequentemente enfrentam a difícil tarefa de priorizar 
+políticas públicas em um cenário de recursos limitados, ao mesmo tempo que 
+lidam com a complexidade e a interdependência das metas estabelecidas pelos ODS.
+
+Em relação a supracitada interdependência, ressalta-se ainda que a integração de 
+políticas públicas esbarra muitas vezes em políticas públicas municipais fragmentadas
+em governos locais que enfrentam dificuldades de coordenação entre os diferentes
+setores e níveis de governo.
 
 ## Objetivo 
 
-O objetivo do presente relatório consiste em estruturar um indicador de 
-eficiência para municípios brasileiros no processo de atendimento de Objetivos 
-de Desenvolvimento Sustentável (ODS) a partir do empenho do orçamento municipal 
-(alocação de recursos). Para alcançar os resultados foram realizadas as seguintes 
-etapas:
+COm base no exposto, objetivo do presente relatório consiste em estruturar um 
+indicador de eficiência para municípios brasileiros no processo de atendimento de 
+Objetivos de Desenvolvimento Sustentável (ODS) a partir do empenho do orçamento 
+municipal (alocação de recursos). Para alcançar os resultados foram realizadas 
+as seguintes etapas:
 
 - Seleção de municípios brasileiros;
 
@@ -168,9 +213,21 @@ ODS;
 - Análise comparativa dos resultados.
 
 Assim, busca-se a partir deste objetivo destacar áreas de melhoria na gestão 
-pública para promover o desenvolvimento sustentável e fornecer insights 
-relevantes para pautar políticas públicas mais eficazes, visando alcançar avanços 
-significativos em direção aos ODS no país.
+pública para promover alguns fatores do desenvolvimento sustentável, 
+estruturados a partir das ODS, e fornecer insights relevantes para pautar políticas públicas mais eficazes a partir do estabelecimento de práticas municipais de 
+referência, visando alcançar avanços significativos em direção aos ODS no país.
+
+# FUNDAMENTAÇÃO TEÓRICA
+
+## Objetivos de Desenvolvimento Sustentável (ODS)
+
+## Análise Envoltória de Dados (DEA)
+
+$$ \min{} \theta_0 = \sum_{i = 1}^{r} v_i \ x_{i0}$$
+$$Sujeito \ à:$$
+$$ \sum_{j = 1}^{s} u_j \ y_{j0} = 1 $$
+$$(\sum_{j = 1}^{s} u_j \ y_{jk}) - (\sum_{i = 1}^{r} v_i \ x_{ik}) \leq 0, \forall  \ k$$
+$$v_i, \ u_j \geq 0, \forall \ i, \ j$$
 
 # MÉTODO DE PESQUISA
 
@@ -190,12 +247,7 @@ os quais, em geral, enfrentam desafios típicos de cidades em desenvolvimento e,
 mesmo tempo, possuem capacidade administrativa intermediária para implementar
 políticas voltadas ao cumprimento dos ODS.
 
-A partir do exposto, a amostra foi reduzida a 232 municípios brasileiros, sendo 
-uma amostra suficientemente grande para  captar variações regionais e 
-operacionais de municípios homogêneos. Ao analisar a eficiência destes municípios 
-é possível identificar padrões de eficiência e, além disso,  gerar recomendações 
-de boas práticas a serem implementadas. 
-
+A partir do exposto, a amostra foi reduzida a 232 municípios brasileiros. 
 No dashboard abaixo é possível analisar a amostra selecionada. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
@@ -259,7 +311,27 @@ g1_amostra <- plotly::ggplotly(g1_amostra, tooltip = 'text') %>%
 g1_amostra
 ```
 
+
+A partir do dashboard pode-se observar que o critério de seleção proposto garante 
+uma amostra suficientemente representativa das realidades díspares encontradas no
+extenso territóreo nacional. A partir da análise desses 232 municípios pode-se 
+captar variações regionais de municípios homogêneos em termos de dificuldades 
+operacionais. 
+
+Cumpre ressaltar que integral cobertura geográfica observada garantem que o estudo 
+forneça uma contribuição não pequena não só para as localidades analisadas, 
+mas também para a formulação de políticas em âmbito estadual e mesmo nacional. 
+Com isso, o presente relatório contribui para o desenvolvimento de soluções 
+integradas que atendam às múltiplas dimensões do desenvolvimento sustentável no 
+país.
+
 ## Modelo Conceitual Proposto
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.width='75%'}
+
+knitr::include_graphics(path = 'modelo_conceitual.png')
+```
+
 
 ### Análise dos Insumos
 
@@ -521,15 +593,6 @@ g1_box_produtos
 
 ```
 
-## Fonte de Dados
-
-## Indicador de Eficiência
-
-$$ \min{} \theta_0 = \sum_{i = 1}^{r} v_i \ x_{i0}$$
-$$Sujeito \ à:$$
-$$ \sum_{j = 1}^{s} u_j \ y_{j0} = 1 $$
-$$(\sum_{i = 1}^{r} v_i \ x_{ik}) - (\sum_{j = 1}^{s} u_j \ y_{jk}) = 0, \forall  \ k$$
-$$v_i, \ u_j \geq 0, \forall \ i, \ j$$
 # DISCUSSÃO DE RESULTADOS
 
 ## Nível de Eficiência dos Municípios
