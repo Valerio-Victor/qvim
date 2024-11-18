@@ -596,6 +596,77 @@ abordagem é especialmente útil em situações onde os recursos disponíveis (i
 são limitados ou já estão plenamente utilizados, e o foco da gestão está em 
 aumentar os resultados obtidos com esses recursos.
 
+Ao realizar uma análise bibliométrica com a finalidade de identificar estudos 
+próximos à presente aplicação pode-se observar que a técnica de Análise 
+Envoltória de Dados (DEA), empregada no presente relatório para avaliar a 
+eficiência do gasto público municipal na promoção dos Objetivos de Desenvolvimento 
+Sustentável (ODS), é amplamente aplicada em pesquisas acadêmicas ao redor do mundo. 
+Em números, desde 2004 foram identificados mais de 150 artigos científicos que 
+empregaram modelos DEA para comparar amostras de cidades, sendo que, estes artigos 
+foram publicados em 119 periódicos especializados e de renome. Ao se considerar 
+este total de artigos, constata-se a participação diversa de mais de 440 
+pesquisadores de universidades em todo o mundo, o que evidencia a robustez e a 
+credibilidade do método.
+
+Ao mesmo passo, pode-se afirmar que a aplicação da técnica DEA pode se adaptadas 
+às mais distintas realidades na medida em que é extensivamente utilizada em 
+diferentes contextos nacionais. Mais especificamente, foram encontradas 
+pesquisas similares em mais de XX países, podendo-se destacar estudos conduzidos 
+em larga escala na China, especialmente pela Universidade Jiao Tong de Xangai; 
+na Índia, principalmente pelo Instituto Indiano de Tecnologia de Bombaim; e nos 
+Estados Unidos, com contribuições significativas da Universidade de Iowa. 
+Essa diversidade geográfica reforça a universalidade do método.
+
+No mesmo sentido, a técnica DEA é frequentemente utilizada para investigar temas 
+correlatos aos abordados neste relatório, em geral, pode-se observar que as 
+comparações de eficiência relativa realizadas avaliavam municípios a partir de 
+óticas como mudanças climáticas, vulnerabilidade social, desenvolvimento 
+sustentável, energia e transporte. A densidade de pesquisas nesses tópicos 
+demonstra a relevância e aplicabilidade da técnica para analisar questões 
+cruciais do desenvolvimento urbano e a eficiência de políticas públicas.
+
+Dessa forma, observa-se uma sólida experiência científica no emprego da técnica 
+DEA para se explorar problemas complexos e interdisciplinares relacionados aos 
+contextos locais, comprovando ser satisfatória para se avaliar o alcance dos ODS 
+em contextos municipais brasileiros.
+
+Por sua vez, o Brasil mostrou ter uma comunidade de pesquisa bem estabelecida 
+que desenvolveu e incentivou discussões sobre os ODS. A relevância do Brasil 
+como fonte de contribuições científicas nessa área pode estar ligada ao fato de
+que a relação entre educação e sustentabilidade é um requisito presente em sua 
+Constituição Federal. Isso levou as instituições de ensino a adaptar seus processos 
+internos, infraestrutura e cultura organizacional, implementando práticas em 
+busca da sustentabilidade (Pedraja-Rejas et al., 2023). Mais especificamente, 
+foram encontrados 2 trabalhos publicados em periódicos científicos especializados 
+e de editoração internacional aplicando a técnica de Análise Envoltória de Dados 
+(DEA) para comparar municípios no alcance dos Objetivos de Desenvolvimento 
+Sustentável (ODS)
+
+O primeiro, intitulado 
+["Technical and Scale Efficiency of the Brazilian Municipalities' Water and Sanitation Services: A Two-Stage Data Envelopment Analysis"](https://www.mdpi.com/2071-1050/14/1/199), 
+investigou a eficiência técnica e de escala dos serviços de água e 
+saneamento dos municípios brasileiros, relacionando-os ao ODS 6 – Água Potável 
+e Saneamento. A pesquisa revelou ineficiências decorrentes de operações 
+inadequadas além de identificar fatores contextuais relevantes. Apesar de oferecer 
+importantes recomendações de políticas públicas, o trabalho limita-se à uma 
+abordagem técnica-operacional.
+
+O segundo estudo, intitulado 
+["Analysis of the Efficiency of Sustainable Development Goal (SDG 15) Protecting Terrestrial Life in the Municipalities of Paraná State"](https://dialnet.unirioja.es/servlet/articulo?codigo=9186459), focou na análise da eficiência dos municípios paranaenses em 
+alcançar o ODS 15 – Vida Terrestre. Ao utilizar o ICMS Ecológico como insumo e 
+o percentual de áreas florestais como produto, o estudo analisou a eficiência 
+relativa partindo de uma perspectiva orçamentária, identificando que regiões 
+industrializadas enfrentam maiores desafios na conservação ambiental. 
+
+Embora essas investigações reforcem a relevância e a aplicabilidade da DEA na 
+avaliação de políticas públicas relacionadas aos ODS no contexto municipal 
+brasileirpo, o presente relatório avança ao analisar de maneira abrangente a 
+eficiência relativa do gasto público municipal na promoção do desenvolvimento 
+sustentável a partir de múltiplos ODS em municípios localizados em todas as 
+regiões do país. Essa abordagem permite uma visão mais profunda, permitindo 
+identificar a posição atual de cada município e subsidiar políticas públicas 
+que promovam o desenvolvimento sustentável em diversas dimensões de maneira 
+eficiente.
 
 # MÉTODO DE PESQUISA
 
