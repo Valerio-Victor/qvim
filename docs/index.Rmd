@@ -670,6 +670,76 @@ eficiente.
 
 # MÉTODO DE PESQUISA
 
+## Etapas da Pesquisa
+
+De acordo com 
+[Marconi e Lakatos (2017)](https://www.amazon.com.br/Fundamentos-Metodologia-Cient%C3%ADfica-Maria-Lakatos/dp/8597010126), 
+este estudo pode ser caracterizado como 
+uma pesquisa aplicada, com objetivos empíricos normativos. Esta classificação é 
+justificada já que possui como foco formular políticas e estratégias destinadas 
+a melhorar uma situação presente. A abordagem metodológica adotada é 
+predominantemente quantitativa, utilizando pesquisa de campo como meio e 
+procedimentos técnicos de modelagem matemática. Esses elementos são essenciais 
+para compreender e enfrentar o problema em questão. 
+
+Em termos práticos, a aplicação do Modelo DEA CCR aos municípios brasileiros 
+segue é estruturada em uma sequência de 4 etapas, conforme organizazdo na Figura 
+a seguir.
+
+
+```{r echo=FALSE, out.width='50%'}
+
+knitr::include_graphics(path = 'metodo.png')
+
+```
+
+Assim como disposto na Figura acima, tem-se a seguinte estruturação:
+
+- **Seleção dos Municípios**
+Para garantir homogeneidade na amostra em termos de desafios administrativos e 
+operacionais, foram selecionados municípios com população entre 75 mil e 150 mil 
+habitantes. A delimitação foi feita com base nos dados populacionais mais 
+recentes disponibilizados pelo Instituto Brasileiro de Geografia e Estatística 
+(IBGE). Essa abordagem visou minimizar o impacto de diferenças estruturais 
+extremas entre municípios, criando um conjunto de análise mais comparável e 
+representativo.
+
+- **Definição do Modelo Conceitual**
+A etapa seguinte concentrou-se na definição dos critérios de análise para a 
+eficiência relativa dos municípios. Este processo incluiu a identificação dos 
+insumos e produtos, além do levantamento de dados.
+
+  - **Insumos:** Foram utilizados dados de orçamento municipal agrupados por função, 
+  provenientes do Sistema de Informações Contábeis e Fiscais do Setor Público 
+  Brasileiro (SICONFI). Os dados abrangem o período de 2018 a 2022 e foram 
+  ajustados pela inflação com base no Índice Nacional de Preços ao Consumidor 
+  Amplo (IPCA), sendo os valores reportados a preços de 2022. Para cada município, 
+  somaram-se os orçamentos empenhados e dividiu-se pelo tamanho da população, 
+  oferecendo uma perspectiva de médio prazo de alocação de recursos per capita.
+  
+  - **Produtos:** Utilizaram-se os números índices fornecidos pelo Instituto Cidades 
+  Sustentáveis, que medem o alcance dos ODS de 0 (nenhum alcance dos objetivos) a 
+  100 (alcance total dos objetivos). Esses índices capturam de forma sintética a 
+  performance municipal em relação aos ODS.
+
+- **Implementação Computacional**
+A análise técnica baseou-se na implementação computacional do modelo de Análise 
+Envoltória de Dados (DEA). O modelo foi desenvolvido no software open source R, 
+amplamente reconhecido pela sua flexibilidade e eficiência em análises estatísticas 
+e de otimização. A DEA possibilitou a avaliação relativa de eficiência, 
+considerando simultaneamente múltiplos insumos e produtos.
+
+- **Análise dos Resultados e Recomendações**
+Por fim, os resultados da análise foram interpretados com vistas a fornecer 
+recomendações práticas para a melhoria da eficiência na alocação de recursos 
+públicos. O município de Itajubá-MG, integrante da amostra analisada, recebeu 
+atenção especial nas recomendações, destacando-se as melhores práticas observadas 
+e sugestões para aprimorar seu desempenho na promoção dos ODS.
+
+Esse conjunto de etapas assegurou rigor metodológico e relevância prática aos 
+resultados obtidos, contribuindo para o desenvolvimento de estratégias eficazes 
+no uso dos recursos públicos em favor dos objetivos sustentáveis.
+
 ## Seleção de Municípios 
 
 Com a finalidade de realizar a análise comparativa de eficiência orçamentária em
@@ -822,6 +892,7 @@ conceitual proposto.
 ```{r echo=FALSE}
 
 knitr::include_graphics(path = 'modelo_conceitual.png')
+
 ```
 
 A análise proposta é inovadora e essencial, pois:
@@ -842,7 +913,9 @@ sustentável.
 
 ### Análise dos Insumos
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+No dashboard abaixo são apresentados os valores dos insumos para cada município 
+selecionado. É possível estratificar a amostra por região, municípios ou valores
+per capta.
 
 ```{r echo=FALSE}
 mapa_insumos_key <- SharedData$new(mapa_insumos)
@@ -904,7 +977,8 @@ bscols(widths = c(6, 6),
 g1_disp_insumos
 ```
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Na tabela de insumos abaixo são apresentados os valores do dashboard de acordo 
+com a estratificação realizada.
 
 ```{r echo=FALSE}
 tb1_insumos <- datatable(mapa_insumos_key,
@@ -926,17 +1000,52 @@ tb1_insumos <- datatable(mapa_insumos_key,
 tb1_insumos
 ```
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Os dados analisados revelam importantes características sobre os gastos públicos 
+municipais per capita em diferentes áreas. Com um total de 1.160 observações, o 
+gasto médio per capita registrado foi de R\$ 6.848,75, com uma alta variação 
+representada pelo desvio padrão de R\$ 5.485,46. O menor gasto per capita 
+observado foi de R\$ 0, enquanto o maior alcançou R\$ 62.548,82, destacando uma 
+disparidade significativa nos investimentos entre os municípios analisados. Os 
+valores nos percentis também evidenciam essa variação: enquanto 25% dos 
+municípios gastam menos de R\$ 3.141,50 per capita, 75% permanecem abaixo de 
+R\$ 9.571,31.
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Entre os municípios com maiores gastos per capita, destacam-se Varginha, com um 
+impressionante valor de R\$ 145.445,24, seguida por Canaã dos Carajás 
+(R\$ 130.629,14), Paulínia (R\$ 116.439,53), São Sebastião (R\$ 99.061,23) e 
+Ipojuca (R\$ 82.983,66). Esses valores indicam um significativo investimento em 
+áreas específicas, possivelmente relacionado a uma maior arrecadação ou 
+priorização de setores estratégicos. Por outro lado, os menores gastos per 
+capita foram identificados em municípios como Moju (R\$ 11.538,35), Fazenda Rio 
+Grande (R\$ 16.346,11), Novo Gama (R\$ 16.668,63), Abreu e Lima (R\$ 16.898,01) e 
+São Lourenço da Mata (R\$ 17.415,80), o que pode refletir desafios orçamentários 
+ou uma limitada capacidade de arrecadação.
+
+Ao observar os insumos, o grupo Educação e Cultura apresentou o maior gasto 
+médio per capita, alcançando R\$ 10.745,62, evidenciando a relevância do 
+investimento em capital humano como elemento chave para o desenvolvimento 
+sustentável. Em seguida, o insumo Saúde, Desporto e Lazer registrou um gasto 
+médio de R\$ 10.086,94, também demonstrando sua prioridade. Por outro lado, o 
+grupo Saneamento e Gestão Ambiental, com uma média de apenas R\$ 1.288,26 per 
+capita, apresentou o menor investimento relativo. Isso pode sugerir uma 
+subpriorização de áreas diretamente ligadas ao alcance de ODS importantes, como 
+o ODS 6 (água limpa e saneamento) e o ODS 11 (cidades e comunidades sustentáveis).
+
+Essas disparidades nos gastos reforçam a necessidade de uma análise criteriosa 
+para compreender os fatores que influenciam a distribuição de recursos e a 
+priorização de políticas públicas. Identificar os padrões de investimento e sua 
+relação com o desempenho em Objetivos de Desenvolvimento Sustentável é 
+essencial para promover uma alocação de recursos mais eficiente e alinhada às 
+necessidades locais.
+
+No gráfico abaixo é realizada uma análise comparativa dos gastos públicos per 
+capita entre os municípios das diferentes regiões do Brasil. Pode-se observar
+importantes disparidades regionais, refletindo características econômicas, 
+sociais e administrativas específicas de cada localidade. Essas diferenças podem 
+ser observadas tanto na alocação total de recursos quanto na priorização de 
+determinadas áreas de investimento, com implicações significativas para a 
+promoção dos Objetivos de Desenvolvimento Sustentável (ODS).
+
 
 ```{r echo=FALSE}
 mapa_insumos_2 <- mapa_insumos
@@ -977,9 +1086,57 @@ bscols(widths = c(12),
 g1_box_insumos
 ```
 
+Os municípios do Sudeste apresentaram os maiores valores médios de gasto per 
+capita, especialmente em Educação e Cultura, bem como em Saúde, Desporto e Lazer. 
+Essa tendência reflete a alta capacidade de arrecadação fiscal e o fortalecimento 
+de políticas públicas orientadas ao desenvolvimento humano. Municípios como 
+Paulínia (SP) e São Sebastião (SP) se destacam pelo elevado investimento em áreas 
+estratégicas, reforçando seu potencial para impulsionar os indicadores 
+relacionados aos ODS 3 (saúde e bem-estar) e 4 (educação de qualidade).
+
+No Sul, observou-se uma distribuição mais equilibrada dos gastos per capita, com 
+destaque para investimentos sólidos em Saúde e Urbanismo. Essa consistência sugere 
+um planejamento orçamentário estruturado, com foco na qualidade de vida urbana e 
+serviços básicos. Municípios da região tendem a priorizar políticas integradas, 
+alinhadas ao ODS 11 (cidades e comunidades sustentáveis).
+
+A Região Norte apresentou as maiores disparidades internas. Enquanto municípios 
+como Canaã dos Carajás (PA) registraram elevados gastos per capita, 
+impulsionados por receitas provenientes de royalties de mineração, outros 
+municípios enfrentam restrições orçamentárias severas. A concentração de 
+recursos em determinados municípios ricos em recursos naturais destaca o desafio 
+de promover uma distribuição equitativa de investimentos que favoreça o alcance 
+dos ODS em toda a região.
+
+No Nordeste, o investimento per capita foi consideravelmente mais baixo em 
+comparação com outras regiões, especialmente em áreas como Saneamento e Gestão 
+Ambiental. Municípios como Ipojuca (PE) se destacam por maiores investimentos, 
+provavelmente associados ao turismo e à atividade portuária. Entretanto, o 
+desafio permanece em ampliar os investimentos em infraestrutura básica, 
+essenciais para melhorar os indicadores do ODS 6 (água limpa e saneamento).
+
+Os municípios do Centro-Oeste destacaram-se pelos altos gastos per capita em 
+Urbanismo, Habitação e Agricultura, refletindo a importância econômica do 
+agronegócio e da infraestrutura urbana para a região. Essa ênfase se alinha 
+aos desafios específicos da região, como a necessidade de promover o uso 
+sustentável da terra e a proteção ambiental, enquanto contribui para o ODS 15 
+(vida terrestre).
+
+A análise regional evidencia que os municípios brasileiros alocam seus recursos 
+de forma diversificada, respondendo a contextos econômicos, geográficos e 
+culturais específicos. No entanto, há uma clara necessidade de equilibrar os 
+investimentos entre regiões e setores para garantir que todos os municípios 
+possam avançar em direção aos ODS de forma mais uniforme. Essa abordagem é 
+especialmente crítica em áreas como Saneamento e Gestão Ambiental, que 
+permanecem subfinanciadas em muitas regiões, apesar de sua relevância para a 
+sustentabilidade e o bem-estar da população.
+
+
 ### Análise dos Produtos
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+No dashboard abaixo são apresentados os valores dos produtos para cada município 
+selecionado. Do mesmo modo, é possível estratificar a amostra por região, 
+municípios ou valores per capta.
 
 ```{r echo=FALSE}
 mapa_produtos_key <- SharedData$new(mapa_produtos)
@@ -1033,7 +1190,8 @@ bscols(widths = c(6, 6),
 g1_disp_produtos
 ```
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Na tabela de insumos abaixo são apresentados os valores do dashboard de acordo 
+com a estratificação realizada.
 
 ```{r echo=FALSE}
 tb1_produtos <- datatable(mapa_produtos_key,
@@ -1054,17 +1212,26 @@ tb1_produtos <- datatable(mapa_produtos_key,
 tb1_produtos
 ```
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
+Com base na análise dos dados, observamos que os índices dos Objetivos de 
+Desenvolvimento Sustentável (ODS) variam significativamente entre os municípios 
+e regiões, refletindo as desigualdades no desempenho dos indicadores.
 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! 
-Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum! Lorem ipsum!
+Os valores índice, que variam de 0 a 100, apresentam uma média geral de 60,17, 
+com desvio padrão de 15,03. Isso sugere uma dispersão moderada, com municípios 
+altamente desenvolvidos em certos aspectos convivendo com outros em condições 
+críticas. O menor índice registrado foi 17,13, enquanto o maior chegou a 98,58.
+
+Os cinco municípios com melhores índices foram: Balneário Camboriú (98,58), 
+Pinhais (96,45), Assis (94,63), Barretos (94,05) e Campo Mourão (93,95), 
+destacando-se, principalmente, em indicadores relacionados ao ODS 6 (água e 
+saneamento). Já os municípios com os piores índices foram: Moju (17,13), 
+Chapadinha (19,16), Breves (19,60), Vespasiano (19,87) e Pinheiro (21,37), com 
+desempenho crítico no ODS 4 (educação de qualidade) e ODS 11 (cidades e 
+comunidades sustentáveis).
+
+Entre os produtos (ODS), o ODS 6 apresentou os maiores índices médios (69,12), 
+indicando avanços relativos em água e saneamento. Em contraste, o ODS 4 teve a 
+menor média (46,37), refletindo desafios significativos em educação de qualidade.
 
 ```{r echo=FALSE}
 mapa_produtos_2 <- mapa_produtos
@@ -1100,10 +1267,30 @@ g1_box_produtos
 
 ```
 
+A análise regional revelou desigualdades claras. O Sudeste liderou com a maior 
+média de índices (64,12), seguido por Centro-Oeste (63,83) e Sul (63,78), 
+indicando maior desenvolvimento em seus municípios. O Nordeste (54,33) e o 
+Norte (48,69) apresentaram desempenhos inferiores, com maior dispersão nos 
+resultados. O Norte, em especial, mostrou o menor índice registrado (17,13), 
+refletindo dificuldades estruturais e socioeconômicas.
+
+Essas diferenças regionais reforçam a necessidade de políticas públicas 
+direcionadas, que priorizem investimentos em educação, cidades sustentáveis e 
+saneamento básico, especialmente em municípios das regiões Norte e Nordeste. 
+As regiões mais desenvolvidas, embora em posição de destaque, ainda apresentam 
+desafios localizados que requerem atenção contínua.
+
+Essa análise detalha a diversidade e as disparidades existentes, servindo como 
+base para a formulação de estratégias direcionadas à promoção dos ODS em nível 
+municipal e regional.
+
 # DISCUSSÃO DE RESULTADOS
 
 ## Nível de Eficiência dos Municípios
 
+No dashboard abaixo são apresentados os níveis de eficiência calculados por meio 
+do modelo de Análise Envoltória de Dados. É possível estratificar a amostra por 
+região, municípios ou valores de eficiência
 
 ```{r echo=FALSE}
 eficiencia_muni <- eficiencia %>%
@@ -1173,6 +1360,8 @@ bscols(widths = c(6, 6),
 g1_eficiencia
 ```
 
+Na tabela de insumos abaixo são apresentados os valores do dashboard de acordo 
+com a estratificação realizada.
 
 ```{r echo=FALSE}
 tb1_eficiencia <- datatable(eficiencia_key,
@@ -1193,7 +1382,89 @@ tb1_eficiencia
 ```
 
 
+A análise dos níveis de eficiência dos municípios, calculados pelo modelo de 
+Análise Envoltória de Dados (DEA), revelou padrões interessantes no desempenho 
+relativo das administrações municipais. Os índices variaram de 0,18 
+(menos eficiente) a 1,00 (mais eficiente), com média geral de 0,77 e desvio 
+padrão de 0,20, indicando uma dispersão significativa nos resultados.
+
+Um total de 47 municípios alcançou a eficiência máxima (1,00), incluindo 
+Ji-Paraná, Barbacena, Teófilo Otoni, Camboriú e Várzea Paulista, entre outros. 
+Esses municípios se destacaram por utilizarem de forma otimizada os recursos 
+disponíveis para alcançar os melhores índices nos Objetivos de Desenvolvimento 
+Sustentável (ODS).
+
+O município de Varginha apresentou o menor índice de eficiência, com 0,18. Este 
+resultado sugere significativas ineficiências na aplicação de recursos, 
+demandando análise mais detalhada para identificação de fatores específicos que 
+comprometam sua performance.
+
+Os municípios foram classificados em três categorias de eficiência:
+
+- **Alta Eficiência (0,8-1,0)**: 111 municípios (47,8%) se enquadram nessa categoria, 
+indicando um grupo expressivo com desempenho ótimo ou próximo do ótimo.
+
+- **Eficiência Moderada (0,6-0,8)**: 78 municípios (33,6%) apresentam desempenho 
+intermediário, sugerindo que, embora eficientes, têm margem para melhorias.
+
+- **Baixa Eficiência (0-0,6)**: 43 municípios (18,5%) estão abaixo dos níveis 
+esperados, enfrentando desafios significativos na aplicação de recursos.
+
+A análise comparativa dos níveis de eficiência por região, considerando os 
+municípios avaliados, revelou disparidades significativas no desempenho médio. 
+Os resultados detalham o desempenho médio, mínimo e máximo, além da variabilidade 
+observada entre os municípios de cada região.
+
+A região Nordeste apresentou o maior nível médio de eficiência (0,836), com um 
+desvio padrão relativamente baixo (0,171), indicando homogeneidade em bom 
+desempenho entre os municípios. A eficiência máxima (1,0) foi alcançada em 
+diversos municípios, reforçando o destaque regional. No entanto, ainda há 
+municípios com valores abaixo de 0,5, o que aponta desafios localizados.
+
+A região Sul ocupa a segunda posição, com média de 0,807 e desvio padrão de 0,156. 
+Isso reflete um desempenho consistente, com índices elevados e menos dispersão. 
+O menor valor na região foi 0,400, o que, apesar de inferior à média, está 
+acima de muitos municípios de outras regiões.
+
+Com média de 0,765, o Centro-Oeste apresenta uma eficiência intermediária, 
+mas com maior dispersão (desvio padrão de 0,200). Embora a região tenha 
+municípios altamente eficientes (máximo de 1,0), também há casos de desempenho 
+crítico, como o menor índice registrado em 0,367.
+
+Apesar de ser uma região economicamente mais desenvolvida, o Sudeste apresentou 
+média de eficiência de 0,740, posicionando-se apenas na quarta colocação. Essa 
+performance reflete a grande variabilidade entre seus municípios, com o menor 
+índice registrado (0,182) e um desvio padrão significativo (0,210). Isso 
+evidencia desafios de gestão pública em determinados municípios.
+
+A região Norte apresentou a menor média de eficiência (0,655) e uma dispersão 
+significativa (desvio padrão de 0,199). Embora tenha municípios eficientes (1,0), 
+a maioria apresenta desafios estruturais, com o menor índice registrado em 0,331.
+
+Os resultados mostram que, embora algumas regiões apresentem melhores médias, a 
+variabilidade dentro de cada região destaca a necessidade de intervenções 
+específicas para corrigir desigualdades intra-regionais. O Nordeste e o Sul 
+lideram em desempenho geral, enquanto o Sudeste e o Norte enfrentam maiores 
+desafios em eficiência pública, apesar de algumas cidades individuais 
+apresentarem níveis ótimos. Esses achados reforçam a importância de análises 
+contextuais para propor intervenções eficazes.
+
 ## O Municipio de Itajubá
+
+O município de Itajubá alcançou um índice de eficiência de 0,951, destacando-se 
+como um dos municípios com bom desempenho tanto em sua região quanto no conjunto 
+total de municípios analisados.
+
+Neste sentido, o município ocupa a 19ª posição entre os 94 municípios da região, 
+situando-se no percentil superior e destacando-se como um exemplo positivo no 
+contexto regional, onde a média de eficiência é 0,740. No panorama geral, Itajubá 
+está classificado na 62ª posição entre os 232 municípios, também posicionando-se 
+na faixa de alta eficiência. Esse resultado reflete uma performance acima da 
+média geral (0,770) e um posicionamento de destaque no conjunto nacional.
+
+Esses resultados reforçam o bom desempenho de Itajubá, indicando boas práticas 
+administrativas e eficiência na aplicação dos recursos públicos em relação aos 
+ODS.
 
 ```{r echo=FALSE}
 sensibilidade_insumo <- eficiencia %>% 
