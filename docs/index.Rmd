@@ -1451,6 +1451,55 @@ contextuais para propor intervenções eficazes.
 
 ## O Municipio de Itajubá
 
+### Análise dos Insumos
+
+Para o insumo Saúde, Desporto e Lazer, o valor alocado em Itajubá (R\$ 13.661,57) 
+é maior que a média da amostra (R\$ 10.086,94). Itajubá ocupa a posição 34 no 
+ranking da amostra total. No insumo Educação e Cultura, o valor alocado em 
+Itajubá (R\$ 7.358,13) é menor que a média da amostra (R\$ 10.745,62), posicionando 
+o município na 191ª posição. Para o insumo Outros, o valor alocado (R\$ 7.269,93)
+é ligeiramente menor que a média da amostra (R\$ 7.336,73), colocando Itajubá na 
+80ª posição no ranking. No insumo Urbanismo, Transporte e Segurança, Itajubá 
+aloca R\$ 4.174,22, abaixo da média da amostra (R\$ 4.786,20), ocupando a 108ª 
+posição. Já no insumo Saneamento e Gestão Ambiental, o valor de R\$ 330,78 é 
+significativamente menor que a média da amostra (R\$ 1.288,26), resultando na 
+143ª posição no ranking.
+
+Em comparação aos municípios da região Sudeste, Itajubá aloca mais recursos no 
+insumo Saúde, Desporto e Lazer (R\$ 13.661,57), superando a média regional de 
+R\$ 12.205,06, ocupando a 20ª posição no ranking. No insumo Educação e Cultura, 
+o valor alocado (R\$ 7.358,13) é menor que a média regional de R\$ 11.371,28, com 
+Itajubá ocupando a 74ª posição. Para o insumo Outros, o município destina 
+R\$ 7.269,93, abaixo da média regional (R\$ 8.299,79), situando-se na 40ª posição. 
+No insumo Urbanismo, Transporte e Segurança, o valor alocado (R\$ 4.174,22) é 
+inferior à média da região (R\$ 5.191,42), posicionando Itajubá em 49º lugar. 
+Finalmente, no insumo Saneamento e Gestão Ambiental, Itajubá apresenta 
+R\$ 330,78, muito abaixo da média regional (R\$ 1.790,22), ocupando a 63ª posição 
+no ranking.
+
+
+### Análise dos Produtos
+
+Para o produto ODS 6, o valor do indicador em Itajubá (indicador 83,77) é maior 
+que a média da amostra (indicador 69,12). Itajubá ocupa a 60ª posição no ranking 
+da amostra total. No produto ODS 3, o valor do indicador de Itajubá (70,65) é 
+superior à média da amostra (63,78), posicionando-se na 11ª posição do ranking. 
+Para o produto ODS 11, Itajubá apresenta um indicador de 70,63, acima da média 
+da amostra (61,40), ocupando a 73ª posição. No caso do ODS 4, o município 
+alcança um indicador de 56,92, superior à média da amostra (46,37), 
+posicionando-se na 37ª posição.
+
+Em relação ao ODS 6, Itajubá apresenta um indicador de 83,77, acima da média da 
+região Sudeste (77,12), ocupando a 36ª posição no ranking regional. No ODS 3, o 
+valor do indicador em Itajubá (70,65) supera a média regional (65,41), 
+posicionando-se na 10ª posição. Para o ODS 11, o município atinge um indicador 
+de 70,63, superior à média do Sudeste (61,49), ocupando a 34ª posição. 
+Finalmente, no ODS 4, Itajubá registra um indicador de 56,92, acima da média 
+regional (52,47), posicionando-se na 22ª posição.
+
+
+### Nível de Eficiência
+
 O município de Itajubá alcançou um índice de eficiência de 0,951, destacando-se 
 como um dos municípios com bom desempenho tanto em sua região quanto no conjunto 
 total de municípios analisados.
@@ -1465,6 +1514,39 @@ média geral (0,770) e um posicionamento de destaque no conjunto nacional.
 Esses resultados reforçam o bom desempenho de Itajubá, indicando boas práticas 
 administrativas e eficiência na aplicação dos recursos públicos em relação aos 
 ODS.
+
+### Análise de Sensibilidade
+
+Para que o município de Itajubá alcance a eficiência na utilização de seus recursos, considerando um ajuste correto de 5,19%, os cenários possíveis são:
+
+- No primeiro cenário, seria necessário realizar uma redução linear de 5,19% nos 
+valores alocados em cada insumo, mantendo os resultados dos produtos (ODS) 
+constantes. Com essa redução, os valores ajustados seriam: no grupo Educação e 
+Cultura, o orçamento atual de R\$ 7.358,13 passaria para R\$ 6.976,25; no grupo 
+Saneamento e Gestão Ambiental, o valor seria reduzido de R\$ 330,78 para R\$ 313,62; 
+para Saúde, Desporto e Lazer, o orçamento cairia de R\$ 13.661,57 para R\$ 12.952,53; 
+em Urbanismo, Transporte e Segurança, o valor passaria de R\$ 4.174,22 para 
+R\$ 3.957,58; e no grupo Outros, o orçamento seria ajustado de R\$ 7.269,94 para 
+R\$ 6.892,63.
+
+- No segundo cenário, seria necessário aumentar os valores dos produtos (ODS) em 
+5,19%, mantendo os orçamentos dos insumos constantes. Neste caso, os indicadores 
+ajustados seriam: para o ODS 3, o indicador atual de 70,647 passaria para 74,314; 
+para o ODS 4, o valor seria elevado de 56,919 para 59,873; no ODS 6, o indicador 
+aumentaria de 83,768 para 88,116; e, por fim, no ODS 11, o valor ajustado 
+passaria de 70,628 para 74,294.
+
+Essas duas opções mostram caminhos distintos para que Itajubá possa alcançar 
+maior eficiência. A decisão entre redução de insumos ou aumento de produtos 
+dependerá das prioridades estratégicas e da viabilidade prática para implementar 
+tais ajustes.
+
+Os gestores do município podem optar por priorizar a alteração de apenas um único 
+insumo ou produto para alcançar o nível de eficiência desejado. Nesse caso, foi 
+realizada uma análise de sensibilidade para avaliar o impacto dessa estratégia. 
+Essa análise identifica quanto se deve alterar em um único insumo ou produto para 
+que seja possível alcançar o nível máximo de eficiência, permitindo direcionar 
+esforços de forma mais estratégica e focada.
 
 ```{r echo=FALSE}
 sensibilidade_insumo <- eficiencia %>% 
@@ -1495,11 +1577,14 @@ sensibilidade_insumo <- eficiencia %>%
                    valor,
                    accuracy = 0.01,
                    decimal.mark = ',',
-                   big.mark = '.'), ' R$/Habitante')),
+                   big.mark = '.'))),
            fill = contraste_base) +
+  scale_x_continuous(labels = scales::number_format(accuracy = 0.01,
+                                                    decimal.mark = ',',
+                                                    big.mark = '.')) + 
   labs(x = 'R$/Habitante',
        y = '',
-       title = 'Meta de Redução') +
+       title = 'Sensibiliade - Insumo') +
   theme_classic() +
   theme(legend.position = 'bottom',
         axis.title.x = ggtext::element_markdown(),
@@ -1529,11 +1614,11 @@ sensibilidade_produto <- eficiencia %>%
      valor = round(valor, 4)) %>% 
   dplyr::mutate(produto = forcats::fct_reorder(produto, valor)) %>% 
   ggplot() + 
-  geom_col(aes(y = produto, x = valor, 
+  geom_col(aes(y = produto, x = valor*100, 
                group = 1,
                text = paste0(
-                 'Melhoria: ', scales::number(
-                   valor,
+                 'Aumento: ', scales::number(
+                   valor*100,
                    accuracy = 0.01,
                    decimal.mark = ',',
                    big.mark = '.'), ' %')),
@@ -1543,7 +1628,7 @@ sensibilidade_produto <- eficiencia %>%
                                                     big.mark = '.')) + 
   labs(x = '%',
        y = '',
-       title = 'Meta de Melhoria') +
+       title = 'Sensibiliade - Produto') +
   theme_classic() +
   theme(legend.position = 'bottom',
         axis.title.x = ggtext::element_markdown(),
@@ -1563,6 +1648,52 @@ bscols(widths = c(6, 6),
 
 
 ```
+
+
+A análise de sensibilidade realizada permite identificar o ajuste necessário em 
+cada insumo para que o município de Itajubá alcance o nível máximo de eficiência. 
+Para a rubrica "Outros", é necessário reduzir o gasto per capita em R\$ 262,41, 
+partindo do valor atual de R\$ 7.269,93 por habitante para um valor meta de 
+R\$ 7.007,52 por habitante. Essa redução representa aproximadamente 3,61% do valor 
+atual destinado a essa rubrica. Já para a rubrica "Urbanismo, Transporte e 
+Segurança", a redução necessária é de R\$ 232,34 por habitante, ajustando o valor 
+atual de R\$ 4.174,22 para um valor meta de R\$ 3.941,88 por habitante. Nesse caso, 
+o ajuste corresponde a aproximadamente 5,56% do valor atual destinado a essa rubrica.
+
+Ao comparar os esforços necessários, observa-se que, embora a rubrica "Outros" 
+exija uma redução absoluta maior em termos de valor per capita, o ajuste 
+necessário em relação ao valor atualmente alocado é proporcionalmente menor. Em
+contrapartida, a rubrica "Urbanismo, Transporte e Segurança" apresenta um esforço
+de ajuste relativamente maior, considerando que a redução representa uma parcela 
+maior do valor atual.
+
+Essa comparação destaca que o esforço proporcional é mais significativo para a 
+rubrica "Urbanismo, Transporte e Segurança", enquanto a rubrica "Outros" requer 
+maior esforço absoluto. A escolha da rubrica a ser ajustada dependerá das 
+prioridades estratégicas do município e da viabilidade de implementar as mudanças
+necessárias em cada área. Ambas as opções oferecem caminhos viáveis para alcançar 
+a eficiência máxima, sendo importante ponderar o impacto das reduções nos serviços
+e resultados associados a cada insumo.
+
+Para alcançar o nível máximo de eficiência, foram calculados os ajustes 
+necessários para cada indicador de ODS, considerando os níveis atuais e os 
+percentuais de aumento fornecidos.
+
+Para o ODS 3, o indicador atual de 70,647 precisaria aumentar em 13,204 unidades 
+(um aumento percentual de 18,7%), atingindo o valor meta de 83,851. No caso do 
+ODS 4, o indicador atual de 56,919 precisaria ser elevado em 2,960 unidades (um 
+aumento percentual de 5,20%), resultando em um valor meta de 59,879. Para o ODS 
+6, o indicador atual de 83,768 demandaria um acréscimo de 4,356 unidades (5,20%), atingindo o valor meta de 88,124. Por fim, o ODS 11 exigiria um aumento de 
+3,673 unidades sobre o nível atual de 70,628 (5,20%), alcançando um valor meta 
+de 74,301.
+
+Comparando os esforços necessários, o ODS 3 apresenta o maior ajuste absoluto e
+percentual, exigindo um aumento mais significativo tanto em termos relativos quanto
+absolutos. Em contraste, os demais indicadores, como o ODS 4, ODS 6, e ODS 11, 
+demandam aumentos mais modestos, mas ainda alinhados com os objetivos de eficiência
+máxima. A decisão de priorizar um ou mais indicadores deve considerar não apenas os
+ajustes necessários, mas também as condições e recursos disponíveis para 
+implementar tais mudanças.
 
 # CONCLUSÃO E RECOMENDAÇÕES
 
