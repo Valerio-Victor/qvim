@@ -177,13 +177,13 @@ Assim, devem ser incorporados como a definição básica de desenvolvimento
 sustentável em metodologias de avaliação de sustentabilidade 
 [(Eberling; Langkau, 2023)](https://www.sciencedirect.com/science/article/pii/S0959652623045419).
 
-Os esforços nacionais para a atingir os ODS resultam a superação de vários 
+Os esforços nacionais para atingir os ODS resultam na superação de vários 
 obstáculos, como a priorização de objetivos e metas, a adaptação de estratégias 
 e políticas do país para que estejam em conformidade com os ODS, o gerenciamento 
 de compensações e a capitalização das sinergias entre os objetivos 
-[(Aly et al., 2022)]().
+[(Aly et al., 2022)](https://www.sciencedirect.com/science/article/abs/pii/S0959652622004413).
 
-Isto é, A promoção dos Objetivos de Desenvolvimento Sustentável (ODS) em nível 
+Isto é, a promoção dos Objetivos de Desenvolvimento Sustentável (ODS) em nível 
 municipal apresenta desafios significativos, especialmente em um país como o 
 Brasil, caracterizado por grandes disparidades regionais e socioeconômicas. Os 
 gestores municipais frequentemente enfrentam a difícil tarefa de priorizar 
@@ -197,7 +197,7 @@ setores e níveis de governo.
 
 ## Objetivo 
 
-COm base no exposto, objetivo do presente relatório consiste em estruturar um 
+Com base no exposto, o objetivo do presente relatório consiste em estruturar um 
 indicador de eficiência para municípios brasileiros no processo de atendimento de 
 Objetivos de Desenvolvimento Sustentável (ODS) a partir do empenho do orçamento 
 municipal (alocação de recursos). Para alcançar os resultados foram realizadas 
@@ -220,7 +220,7 @@ ODS;
 
 Assim, busca-se a partir deste objetivo destacar áreas de melhoria na gestão 
 pública para promover alguns fatores do desenvolvimento sustentável, 
-estruturados a partir das ODS, e fornecer insights relevantes para pautar políticas 
+estruturados a partir dos ODS, e fornecer insights relevantes para pautar políticas 
 públicas mais eficazes a partir do estabelecimento de práticas municipais de 
 referência, visando alcançar avanços significativos em direção aos ODS no país.
 
@@ -262,7 +262,7 @@ interpretação e a implementação por parte das empresas, do meio acadêmico, 
 sociedade civil e dos formuladores de políticas públicas 
 [(Voola et al., 2022)](https://journals.sagepub.com/doi/full/10.1177/14413582221085387).
 
-Os ODS, oferecem uma estrutura abrangente para enfrentar os desafios econômicos, 
+Os ODS oferecem uma estrutura abrangente para enfrentar os desafios econômicos, 
 ambientais e sociais em busca de um mundo mais igualitário e sustentável para 
 as gerações futuras 
 (Lim, 2022). 
@@ -329,7 +329,7 @@ assentamentos humanos inclusivos, seguros, resilientes e sustentáveis
 consumo sustentáveis
 
 - **ODS 13 - Ação contra a mudança global do clima**:	Tomar medidas urgentes para 
-- combater a mudança climática e seus impactos
+combater a mudança climática e seus impactos
 
 - **ODS 14 - Vida na água**:	Conservação e uso sustentável dos oceanos, dos mares e 
 dos recursos marinhos para o desenvolvimento sustentável
@@ -377,7 +377,7 @@ implementação de políticas públicas estruturantes que enfrentem a desigualda
 social e promovam o desenvolvimento de cidades mais justas e sustentáveis a 
 partir de eixos temáticos alinhados aos Objetivos de Desenvolvimento Sustentável 
 (ODS), das Nações Unidas 
-[(PCS 2024)](https://www.cidadessustentaveis.org.br/paginas/pcs). 
+[(PCS, 2024)](https://www.cidadessustentaveis.org.br/paginas/pcs). 
 
 Entre os destaques do PCS estão seus 260 indicadores específicos, que 
 possibilitam medir o progresso dos ODS em cada município brasileiro. Esses 
@@ -385,7 +385,7 @@ indicadores são utilizados para pontuar o desempenho municipal em áreas como
 saúde, educação, segurança, mobilidade, habitação, entre outras fornecendo, 
 portanto, uma infraestrutura de dados crucial na promoção da Agenda 2030 no 
 Brasil 
-[(PCS 2024)](https://www.cidadessustentaveis.org.br/paginas/pcs). 
+[(PCS, 2024)](https://www.cidadessustentaveis.org.br/paginas/pcs). 
 
 Cumpre ressaltar que além do PCS há outras ações relevantes, como o Sistema de 
 Indicadores de Desenvolvimento Sustentável (IDS) do Instituto Brasileiro de 
@@ -438,7 +438,7 @@ despesas públicas conforme áreas de atuação governamental. Ou seja, pode-se 
 os gastos públicos municipais por critério funcional de modo evidenciar as
 destinações dos recursos
 [MOG nº 42/1999](https://www.congressonacional.leg.br/legislacao-e-publicacoes/glossario-orcamentario/-/orcamentario/termo/classificacao_funcional). Assim, esta classificação permite maior transparência e eficiência 
-na aplicação dos recursos públicos. Abaixo são listadas as funções.
+na aplicação dos recursos públicos. Na sequência são listadas as funções.
 
 - **Legislativa**
   - Abrange atividades relacionadas à elaboração de leis e à fiscalização do Executivo, como _Ação Legislativa_ e _Controle Externo_.
@@ -580,7 +580,7 @@ variações mais avançadas que incorporam retornos variáveis de escala ou outr
 características específicas do contexto analisado 
 [(Miranda et al., 2017)](https://www.sciencedirect.com/science/article/pii/S0377221717303491).
 
-Como base no descrito o modelo de Análise Envoltória de dados (DEA-CCR) orientado
+Com base no descrito, o modelo de Análise Envoltória de Dados (DEA-CCR) orientado
 a produto pode ser assim formulado:
 
 
@@ -608,10 +608,10 @@ este total de artigos, constata-se a participação diversa de mais de 440
 pesquisadores de universidades em todo o mundo, o que evidencia a robustez e a 
 credibilidade do método.
 
-Ao mesmo passo, pode-se afirmar que a aplicação da técnica DEA pode se adaptadas 
+Ao mesmo passo, pode-se afirmar que a aplicação da técnica DEA pode se adaptar 
 às mais distintas realidades na medida em que é extensivamente utilizada em 
 diferentes contextos nacionais. Mais especificamente, foram encontradas 
-pesquisas similares em mais de XX países, podendo-se destacar estudos conduzidos 
+pesquisas similares diversos países, podendo-se destacar estudos conduzidos 
 em larga escala na China, especialmente pela Universidade Jiao Tong de Xangai; 
 na Índia, principalmente pelo Instituto Indiano de Tecnologia de Bombaim; e nos 
 Estados Unidos, com contribuições significativas da Universidade de Iowa. 
@@ -660,7 +660,7 @@ industrializadas enfrentam maiores desafios na conservação ambiental.
 
 Embora essas investigações reforcem a relevância e a aplicabilidade da DEA na 
 avaliação de políticas públicas relacionadas aos ODS no contexto municipal 
-brasileirpo, o presente relatório avança ao analisar de maneira abrangente a 
+brasileiro, o presente relatório avança ao analisar de maneira abrangente a 
 eficiência relativa do gasto público municipal na promoção do desenvolvimento 
 sustentável a partir de múltiplos ODS em municípios localizados em todas as 
 regiões do país. Essa abordagem permite uma visão mais profunda, permitindo 
@@ -683,7 +683,7 @@ procedimentos técnicos de modelagem matemática. Esses elementos são essenciai
 para compreender e enfrentar o problema em questão. 
 
 Em termos práticos, a aplicação do Modelo DEA CCR aos municípios brasileiros 
-segue é estruturada em uma sequência de 4 etapas, conforme organizazdo na Figura 
+é estruturada em uma sequência de 4 etapas, conforme organizado na Figura 
 a seguir.
 
 
@@ -823,12 +823,12 @@ g1_amostra
 
 A partir do dashboard pode-se observar que o critério de seleção proposto garante 
 uma amostra suficientemente representativa das realidades díspares encontradas no
-extenso territóreo nacional. A partir da análise desses 232 municípios pode-se 
+extenso território nacional. A partir da análise desses 232 municípios pode-se 
 captar variações regionais de municípios homogêneos em termos de dificuldades 
 operacionais. 
 
-Cumpre ressaltar que integral cobertura geográfica observada garantem que o estudo 
-forneça uma contribuição não pequena não só para as localidades analisadas, 
+Cumpre ressaltar, que a integral cobertura geográfica observada garantem que o estudo 
+forneça uma contribuição significativa não só para as localidades analisadas, 
 mas também para a formulação de políticas em âmbito estadual e mesmo nacional. 
 Com isso, o presente relatório contribui para o desenvolvimento de soluções 
 integradas que atendam às múltiplas dimensões do desenvolvimento sustentável no 
@@ -903,7 +903,7 @@ menos recursos, oferecendo exemplos de boas práticas.
 - Fomenta a transparência: Promove a compreensão clara de como os recursos 
 públicos estão sendo utilizados para alcançar os ODS.
 
-- Apoia o planejamento estratégico: Auxilia gestores públicos a priorizar ações 
+- Apoia o planejamento estratégico: Auxilia gestores públicos a priorizarem ações 
 e ajustar políticas para melhorar a alocação de recursos.
 
 Em síntese, este trabalho contribui significativamente para a literatura sobre 
@@ -915,7 +915,7 @@ sustentável.
 
 No dashboard abaixo são apresentados os valores dos insumos para cada município 
 selecionado. É possível estratificar a amostra por região, municípios ou valores
-per capta.
+per capita.
 
 ```{r echo=FALSE}
 mapa_insumos_key <- SharedData$new(mapa_insumos)
@@ -1136,7 +1136,7 @@ sustentabilidade e o bem-estar da população.
 
 No dashboard abaixo são apresentados os valores dos produtos para cada município 
 selecionado. Do mesmo modo, é possível estratificar a amostra por região, 
-municípios ou valores per capta.
+municípios ou valores per capita.
 
 ```{r echo=FALSE}
 mapa_produtos_key <- SharedData$new(mapa_produtos)
@@ -1190,7 +1190,7 @@ bscols(widths = c(6, 6),
 g1_disp_produtos
 ```
 
-Na tabela de insumos abaixo são apresentados os valores do dashboard de acordo 
+Na tabela de produtos abaixo são apresentados os valores do dashboard de acordo 
 com a estratificação realizada.
 
 ```{r echo=FALSE}
@@ -1290,7 +1290,7 @@ municipal e regional.
 
 No dashboard abaixo são apresentados os níveis de eficiência calculados por meio 
 do modelo de Análise Envoltória de Dados. É possível estratificar a amostra por 
-região, municípios ou valores de eficiência
+região, municípios ou valores de eficiência.
 
 ```{r echo=FALSE}
 eficiencia_muni <- eficiencia %>%
@@ -1360,7 +1360,7 @@ bscols(widths = c(6, 6),
 g1_eficiencia
 ```
 
-Na tabela de insumos abaixo são apresentados os valores do dashboard de acordo 
+Na tabela de eficiência abaixo são apresentados os valores do dashboard de acordo 
 com a estratificação realizada.
 
 ```{r echo=FALSE}
@@ -1517,36 +1517,39 @@ ODS.
 
 ### Análise de Sensibilidade
 
-Para que o município de Itajubá alcance a eficiência na utilização de seus recursos, considerando um ajuste correto de 5,19%, os cenários possíveis são:
+Para que o município de Itajubá alcance a eficiência na utilização de seus recursos,
+sob a perspectiva de alcance dos objetivos de desenvolvimento sustentável, pode-se 
+adotar uma estratégia linear de ajuste dos insumos ou de ajuste dos produtos.
+conforme pormenorizado nos 2 cenários seguintes:
 
-- No primeiro cenário, seria necessário realizar uma redução linear de 5,19% nos 
+- No primeiro cenário, seria necessário realizar uma redução linear de 4,94% nos 
 valores alocados em cada insumo, mantendo os resultados dos produtos (ODS) 
 constantes. Com essa redução, os valores ajustados seriam: no grupo Educação e 
-Cultura, o orçamento atual de R\$ 7.358,13 passaria para R\$ 6.976,25; no grupo 
-Saneamento e Gestão Ambiental, o valor seria reduzido de R\$ 330,78 para R\$ 313,62; 
-para Saúde, Desporto e Lazer, o orçamento cairia de R\$ 13.661,57 para R\$ 12.952,53; 
+Cultura, o orçamento atual de R\$ 7.358,13 passaria para R\$ 6.994,42; no grupo 
+Saneamento e Gestão Ambiental, o valor seria reduzido de R\$ 330,78 para R\$ 314,43; 
+para Saúde, Desporto e Lazer, o orçamento cairia de R\$ 13.661,57 para R\$ 12.986,28; 
 em Urbanismo, Transporte e Segurança, o valor passaria de R\$ 4.174,22 para 
-R\$ 3.957,58; e no grupo Outros, o orçamento seria ajustado de R\$ 7.269,94 para 
-R\$ 6.892,63.
+R\$ 3.967,89; e no grupo Outros, o orçamento seria ajustado de R\$ 7.269,94 para 
+R\$ 6.910,58.
 
 - No segundo cenário, seria necessário aumentar os valores dos produtos (ODS) em 
-5,19%, mantendo os orçamentos dos insumos constantes. Neste caso, os indicadores 
-ajustados seriam: para o ODS 3, o indicador atual de 70,647 passaria para 74,314; 
-para o ODS 4, o valor seria elevado de 56,919 para 59,873; no ODS 6, o indicador 
-aumentaria de 83,768 para 88,116; e, por fim, no ODS 11, o valor ajustado 
-passaria de 70,628 para 74,294.
+5,2%, mantendo os orçamentos dos insumos constantes. Neste caso, os indicadores 
+ajustados seriam: para o ODS 3, o indicador atual de 70,647 passaria para 74,320; 
+para o ODS 4, o valor seria elevado de 56,919 para 59,878; no ODS 6, o indicador 
+aumentaria de 83,768 para 88,123; e, por fim, no ODS 11, o valor ajustado 
+passaria de 70,628 para 74,300.
 
 Essas duas opções mostram caminhos distintos para que Itajubá possa alcançar 
 maior eficiência. A decisão entre redução de insumos ou aumento de produtos 
 dependerá das prioridades estratégicas e da viabilidade prática para implementar 
 tais ajustes.
 
-Os gestores do município podem optar por priorizar a alteração de apenas um único 
-insumo ou produto para alcançar o nível de eficiência desejado. Nesse caso, foi 
-realizada uma análise de sensibilidade para avaliar o impacto dessa estratégia. 
-Essa análise identifica quanto se deve alterar em um único insumo ou produto para 
-que seja possível alcançar o nível máximo de eficiência, permitindo direcionar 
-esforços de forma mais estratégica e focada.
+De outra maneira, em alguns casos os gestores do município podem optar por 
+priorizar uma estratégia combinada de melhoria nos indicadores dos objetivos de 
+desenvolvimento sustentável e redução no orçamento empenhado de modo a alcançar 
+a eficiência máxima. Nesse caso, foi realizada uma análise de projeção para de modo
+a avaliar metas estratégicas para cada variável, viabilizando o direcionamento 
+estratégico de esforços. O dashboard abaixo exibe os resultados dessa análise.
 
 ```{r echo=FALSE}
 sensibilidade_insumo <- eficiencia %>% 
@@ -1584,7 +1587,7 @@ sensibilidade_insumo <- eficiencia %>%
                                                     big.mark = '.')) + 
   labs(x = 'R$/Habitante',
        y = '',
-       title = 'Sensibiliade - Insumo') +
+       title = 'Projeção - Insumo') +
   theme_classic() +
   theme(legend.position = 'bottom',
         axis.title.x = ggtext::element_markdown(),
@@ -1628,7 +1631,7 @@ sensibilidade_produto <- eficiencia %>%
                                                     big.mark = '.')) + 
   labs(x = '%',
        y = '',
-       title = 'Sensibiliade - Produto') +
+       title = 'Projeção - Produto') +
   theme_classic() +
   theme(legend.position = 'bottom',
         axis.title.x = ggtext::element_markdown(),
@@ -1650,8 +1653,8 @@ bscols(widths = c(6, 6),
 ```
 
 
-A análise de sensibilidade realizada permite identificar o ajuste necessário em 
-cada insumo para que o município de Itajubá alcance o nível máximo de eficiência. 
+Na estratégia ótima projetada, são necessários ajustes em dois insumos para que 
+o município de Itajubá alcance o nível máximo de eficiência.
 Para a rubrica "Outros", é necessário reduzir o gasto per capita em R\$ 262,41, 
 partindo do valor atual de R\$ 7.269,93 por habitante para um valor meta de 
 R\$ 7.007,52 por habitante. Essa redução representa aproximadamente 3,61% do valor 
@@ -1667,18 +1670,8 @@ contrapartida, a rubrica "Urbanismo, Transporte e Segurança" apresenta um esfor
 de ajuste relativamente maior, considerando que a redução representa uma parcela 
 maior do valor atual.
 
-Essa comparação destaca que o esforço proporcional é mais significativo para a 
-rubrica "Urbanismo, Transporte e Segurança", enquanto a rubrica "Outros" requer 
-maior esforço absoluto. A escolha da rubrica a ser ajustada dependerá das 
-prioridades estratégicas do município e da viabilidade de implementar as mudanças
-necessárias em cada área. Ambas as opções oferecem caminhos viáveis para alcançar 
-a eficiência máxima, sendo importante ponderar o impacto das reduções nos serviços
-e resultados associados a cada insumo.
-
-Para alcançar o nível máximo de eficiência, foram calculados os ajustes 
-necessários para cada indicador de ODS, considerando os níveis atuais e os 
-percentuais de aumento fornecidos.
-
+De maneira simultanea, na estratégia ótima projetada, são necessários ajustes 
+em todos os indicadores de ODS.
 Para o ODS 3, o indicador atual de 70,647 precisaria aumentar em 13,204 unidades 
 (um aumento percentual de 18,7%), atingindo o valor meta de 83,851. No caso do 
 ODS 4, o indicador atual de 56,919 precisaria ser elevado em 2,960 unidades (um 
@@ -1691,23 +1684,64 @@ Comparando os esforços necessários, o ODS 3 apresenta o maior ajuste absoluto 
 percentual, exigindo um aumento mais significativo tanto em termos relativos quanto
 absolutos. Em contraste, os demais indicadores, como o ODS 4, ODS 6, e ODS 11, 
 demandam aumentos mais modestos, mas ainda alinhados com os objetivos de eficiência
-máxima. A decisão de priorizar um ou mais indicadores deve considerar não apenas os
-ajustes necessários, mas também as condições e recursos disponíveis para 
-implementar tais mudanças.
+máxima.
 
-# CONCLUSÃO E RECOMENDAÇÕES
+# CONSIDERAÇÕES FINAIS
 
-## Síntese
+Em Itajubá, algumas rubricas apresentam gastos per capita superiores à média da 
+amostra, sugerindo potencial para revisão e ajuste. No caso do insumo "Outros", 
+o gasto per capita em administração é de 6.563,53 reais, superando a média per 
+capita da amostra de 6.074,48 reais. Da mesma forma, na rubrica ciência e 
+tecnologia, o gasto per capita é de 92,68 reais, enquanto a média da amostra é 
+de 12,81 reais. Esses valores indicam oportunidades para reduzir gastos sem 
+comprometer os resultados, realocando recursos de forma mais eficiente, 
+especialmente em áreas administrativas e tecnológicas.
 
-Resuma os principais achados sobre a eficiência dos municípios e o alcance dos ODS.
+Além disso, para o insumo "Urbanismo, Transporte e Segurança", destaca-se o gasto 
+per capita em agricultura, que é de 136,53 reais em Itajubá, superior à média 
+regional de 125,58 reais. Embora o desvio não seja expressivo, ele sinaliza a 
+possibilidade de ajustes nos investimentos nessa área, garantindo uma alocação 
+mais equilibrada e aumentando a eficiência dos recursos empregados no município.
 
-## Recomendações para o Município de Itajubá
+Para o ODS 3, Itajubá apresenta desafios em indicadores de saúde como 
+"Cobertura de pré-natal insuficiente (%)", "Incidência de tuberculose 
+(100 mil habitantes)" e "Gravidez na adolescência (%)". Esses resultados indicam 
+necessidade de fortalecer campanhas de saúde pública, ampliar o acesso ao 
+pré-natal e intensificar a vigilância em saúde para doenças transmissíveis. 
+Além disso, o desempenho em "População atendida por equipes de saúde da família 
+(%)" aponta para a importância de expandir esses serviços. Políticas públicas 
+que incentivem a formação de profissionais de saúde, parcerias com instituições 
+de ensino e maior integração das equipes de saúde da família podem contribuir 
+para melhorias significativas.
 
-Sugira ações que o município pode adotar com base nos benchmarks de eficiência e nos ODS.
+No ODS 4, Itajubá enfrenta dificuldades em indicadores educacionais como "Índice 
+de Desenvolvimento da Educação Básica (IDEB) - anos finais", "Prova Brasil - 
+Matemática" e "Prova Brasil - Língua Portuguesa". Esses indicadores evidenciam 
+a necessidade de investir na formação continuada de professores, modernizar a 
+infraestrutura escolar e implementar programas de reforço escolar. Além disso, 
+os resultados em "Razão entre o número de alunos e professores no ensino 
+fundamental" e "Adequação idade/ano no Ensino Fundamental" reforçam a 
+importância de políticas que promovam a eficiência e a qualidade do ensino. A 
+ampliação do monitoramento contínuo do aprendizado e estratégias para redução 
+da evasão escolar também são cruciais.
 
-## Eficiência
+Quanto ao ODS 6, Itajubá apresenta desafios no indicador "Cobertura de água 
+potável (%)", que sugere a necessidade de expandir a infraestrutura de saneamento. 
+Apesar de bons resultados em "Perdas de água (IN)" e "Doenças relacionadas ao 
+saneamento inadequado (100 mil habitantes)", é essencial investir em parcerias 
+público-privadas e na modernização da rede de distribuição para aumentar a 
+eficiência. Campanhas educativas sobre o uso consciente da água podem complementar 
+esses esforços, garantindo maior sustentabilidade.
 
-
+Para o ODS 11, Itajubá apresenta desafios relacionados à mobilidade urbana e 
+habitação. O indicador "Percentual da população de baixa renda com tempo de 
+deslocamento ao trabalho superior a uma hora (%)" aponta para a necessidade de 
+melhorar o transporte público e reduzir os tempos de deslocamento. Além disso, 
+o monitoramento de indicadores como "População residente em aglomerados 
+subnormais (%)" e "Domicílios em favelas (%)" sugere a importância de políticas 
+de urbanização integrada, com habitações acessíveis e infraestrutura sustentável. 
+Essas ações podem reduzir desigualdades e melhorar as condições urbanas para a 
+população.
 
 # APÊNDICE A - ÍNDICE DE INDICADORES POR ODS
 
