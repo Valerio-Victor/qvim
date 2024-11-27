@@ -1518,36 +1518,11 @@ ODS.
 ### Análise de Sensibilidade
 
 Para que o município de Itajubá alcance a eficiência na utilização de seus recursos,
-sob a perspectiva de alcance dos objetivos de desenvolvimento sustentável, pode-se 
-adotar uma estratégia linear de ajuste dos insumos ou de ajuste dos produtos.
-conforme pormenorizado nos 2 cenários seguintes:
-
-- No primeiro cenário, seria necessário realizar uma redução linear de 4,94% nos 
-valores alocados em cada insumo, mantendo os resultados dos produtos (ODS) 
-constantes. Com essa redução, os valores ajustados seriam: no grupo Educação e 
-Cultura, o orçamento atual de R\$ 7.358,13 passaria para R\$ 6.994,42; no grupo 
-Saneamento e Gestão Ambiental, o valor seria reduzido de R\$ 330,78 para R\$ 314,43; 
-para Saúde, Desporto e Lazer, o orçamento cairia de R\$ 13.661,57 para R\$ 12.986,28; 
-em Urbanismo, Transporte e Segurança, o valor passaria de R\$ 4.174,22 para 
-R\$ 3.967,89; e no grupo Outros, o orçamento seria ajustado de R\$ 7.269,94 para 
-R\$ 6.910,58.
-
-- No segundo cenário, seria necessário aumentar os valores dos produtos (ODS) em 
-5,2%, mantendo os orçamentos dos insumos constantes. Neste caso, os indicadores 
-ajustados seriam: para o ODS 3, o indicador atual de 70,647 passaria para 74,320; 
-para o ODS 4, o valor seria elevado de 56,919 para 59,878; no ODS 6, o indicador 
-aumentaria de 83,768 para 88,123; e, por fim, no ODS 11, o valor ajustado 
-passaria de 70,628 para 74,300.
-
-Essas duas opções mostram caminhos distintos para que Itajubá possa alcançar 
-maior eficiência. A decisão entre redução de insumos ou aumento de produtos 
-dependerá das prioridades estratégicas e da viabilidade prática para implementar 
-tais ajustes.
-
-De outra maneira, em alguns casos os gestores do município podem optar por 
+sob a perspectiva de alcance dos objetivos de desenvolvimento sustentável, os gestores 
+do município podem optar por 
 priorizar uma estratégia combinada de melhoria nos indicadores dos objetivos de 
 desenvolvimento sustentável e redução no orçamento empenhado de modo a alcançar 
-a eficiência máxima. Nesse caso, foi realizada uma análise de projeção para de modo
+a eficiência máxima. Nesse caso, foi realizada uma análise de projeção de modo
 a avaliar metas estratégicas para cada variável, viabilizando o direcionamento 
 estratégico de esforços. O dashboard abaixo exibe os resultados dessa análise.
 
@@ -1653,11 +1628,11 @@ bscols(widths = c(6, 6),
 ```
 
 
-Na estratégia ótima projetada, são necessários ajustes em dois insumos para que 
+Na estratégia ótima projetada são necessários ajustes em dois insumos, para que 
 o município de Itajubá alcance o nível máximo de eficiência.
 Para a rubrica "Outros", é necessário reduzir o gasto per capita em R\$ 262,41, 
 partindo do valor atual de R\$ 7.269,93 por habitante para um valor meta de 
-R\$ 7.007,52 por habitante. Essa redução representa aproximadamente 3,61% do valor 
+R\$ 7.007,52 por habitante. Essa redução representa, aproximadamente, 3,61% do valor 
 atual destinado a essa rubrica. Já para a rubrica "Urbanismo, Transporte e 
 Segurança", a redução necessária é de R\$ 232,34 por habitante, ajustando o valor 
 atual de R\$ 4.174,22 para um valor meta de R\$ 3.941,88 por habitante. Nesse caso, 
@@ -1676,7 +1651,8 @@ Para o ODS 3, o indicador atual de 70,647 precisaria aumentar em 13,204 unidades
 (um aumento percentual de 18,7%), atingindo o valor meta de 83,851. No caso do 
 ODS 4, o indicador atual de 56,919 precisaria ser elevado em 2,960 unidades (um 
 aumento percentual de 5,20%), resultando em um valor meta de 59,879. Para o ODS 
-6, o indicador atual de 83,768 demandaria um acréscimo de 4,356 unidades (5,20%), atingindo o valor meta de 88,124. Por fim, o ODS 11 exigiria um aumento de 
+6, o indicador atual de 83,768 demandaria um acréscimo de 4,356 unidades (5,20%), 
+atingindo o valor meta de 88,124. Por fim, o ODS 11 exigiria um aumento de 
 3,673 unidades sobre o nível atual de 70,628 (5,20%), alcançando um valor meta 
 de 74,301.
 
@@ -1695,7 +1671,10 @@ capita da amostra de 6.074,48 reais. Da mesma forma, na rubrica ciência e
 tecnologia, o gasto per capita é de 92,68 reais, enquanto a média da amostra é 
 de 12,81 reais. Esses valores indicam oportunidades para reduzir gastos sem 
 comprometer os resultados, realocando recursos de forma mais eficiente, 
-especialmente em áreas administrativas e tecnológicas.
+especialmente em áreas administrativas e tecnológicas. Compreende-se porém que,
+por se tratar de uma variável chave para Itajubá, a redução de gastos em ciência e 
+tecnologia não deveria ser adotada, sendo suficiente a redução de gastos em 
+administração na direção da média da amostra para atendimento do cenário proposto.
 
 Além disso, para o insumo "Urbanismo, Transporte e Segurança", destaca-se o gasto 
 per capita em agricultura, que é de 136,53 reais em Itajubá, superior à média 
